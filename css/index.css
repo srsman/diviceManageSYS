@@ -1,11 +1,15 @@
 body {padding:0px;margin:0px;}
 #main {height:100%;width:100%;background-color:green;}
 #top_bar {height: 50px;width:100%;background-color: black;}
-#top_bar label:nth-child(1)  {color: white;margin-top: 15px;position:absolute;margin-left: 50px;}
-#top_bar label:nth-child(2)  {color: white;margin-top: 15px;position:absolute;margin-left: 250px;}
-#top_bar label:nth-child(3)  {color: white;margin-top: 15px;position:absolute;margin-left: 300px;}
+#top_bar label:nth-child(1)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 50px;}
+#top_bar label:nth-child(2)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 250px;}
+#top_bar label:nth-child(3)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 300px;}
 #top_bar label:nth-child(4)  {color: white;margin-top: 15px;position:absolute;margin-left: 380px;}
+#top_bar label:nth-child(5)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 480px;}
+#show {width:100%;height:100%;}
 #ctrl_div {height: 50px;width:100%;background-color: #cccccc;}
 #ctrl_div button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
+#show_devices {width:100%;height:100%;background-color:#cc9900;display:inline;}
+#device_manage {width:100%;height:100%;background-color:red;}

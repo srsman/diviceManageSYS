@@ -42,6 +42,7 @@ class devManage{
 			//echo json_encode($row);
 			//echo "<br/>";
 		}
+		mysql_close($con);
 		echo json_encode($arr);
 		//echo $result;
 	}
