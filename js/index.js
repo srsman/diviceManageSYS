@@ -1,5 +1,5 @@
 function divSwitch(e){
-	e = e||window.event;
+	e = e || window.event;
 	if(e.target.id == "label_search"){
 		$("#label_search").css("color","white");
 		$("#label_manage").css("color","#dddddd");
