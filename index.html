@@ -9,10 +9,10 @@
   	<div id="main">
   	  <div id="top_bar">
   	  	<label>炫一下设备管理系统</label>
-  	  	<label>登陆</label>
-  	  	<label>注册</label>
-		<label onclick="divSwitch()" id="aaa">设备查询</label>
-		<label onclick="divSwitch()" id="bbb">设备管理</label>
+  	  	<label onclick="divLogin()" id="label_login">登陆</label>
+  	  	<label onclick="divLogin()" id="label_register">注册</label>
+		<label onclick="divSwitch()" id="label_search">设备查询</label>
+		<label onclick="divSwitch()" id="label_manage">设备管理</label>
   	  </div>	  
 	  <div id="show">
 	    <div id="show_devices">
@@ -25,5 +25,11 @@
 	    <div id="device_manage"></div>
 	  </div>
   	</div>
+	<div id="login_panel">	
+      <div id="close_login" onclick="closeLogin()"></div>
+	</div>
+	<div id="registe_panel">
+	  <div id="close_register" onclick="closeRegister()"></div>
+	</div>
   </body>
 </html>

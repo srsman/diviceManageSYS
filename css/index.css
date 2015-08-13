@@ -1,5 +1,5 @@
 body {padding:0px;margin:0px;}
-#main {height:100%;width:100%;background-color:green;}
+#main {height:100%;width:100%;background-color:green;display:block;}
 #top_bar {height: 50px;width:100%;background-color: black;}
 #top_bar label:nth-child(1)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 50px;}
 #top_bar label:nth-child(2)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 250px;}
@@ -11,5 +11,9 @@ body {padding:0px;margin:0px;}
 #ctrl_div button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
-#show_devices {width:100%;height:100%;background-color:#cc9900;display:inline;}
-#device_manage {width:100%;height:100%;background-color:red;}
+#show_devices {width:100%;height:100%;background-color:#cc9900;display:block;}
+#device_manage {width:100%;height:100%;background-color:green;display:none;}
+#login_panel {width:100%;height:100%;background-color:#aabbff;display:none;position:absolute;top:0px;}
+#registe_panel {width:100%;height:100%;background-color:green;display:none;position:absolute;top:0px;}
+#close_login {width:100px;height:100px;background-color:yellow;float:right;}
+#close_register {width:100px;height:100px;background-color:yellow;float:right;}
