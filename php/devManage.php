@@ -53,9 +53,34 @@ class devManage{
 		mysql_query("SET CHARACTER SET UTF8");  
 		mysql_query("SET CHARACTER_SET_RESULTS=UTF8'"); 
 	}
+
+	//向数据库添加设备
+	public function addDevice(){
+		$device_name = $_GET['device_name'];
+		$device_mode = $_GET['device_mode'];
+		$pixel = $_GET['pixel'];
+		$ram = $_GET['ram'];
+		$cpu_hz = $_GET['cpu_hz'];
+		$screen_size = $_GET['screen_size'];
+		$color = $_GET['color'];
+		$for_camara = $_GET['for_camara'];
+		$back_camara = $_GET['back_camara'];
+		$sim_number = $_GET['sim_number'];
+		$sdcard = $_GET['sdcard'];
+
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard')";	
+//		$querry = "INSERT INTO devices (device_name) VALUES ('$device_name')";
+		self::setCoding();
+		mysql_query($querry);
+		mysql_close($con);
+		
+		echo "设备添加成功！";
+	}
 }
 
 	$obj = new devManage;
-	$obj->getAllData();
+	$obj->addDevice();
 ?>
 

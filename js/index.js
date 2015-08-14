@@ -50,17 +50,56 @@ function closeRegister(e){
 //添加一个设备
 function addDevice(e){
 	e = e||window.event;
-	var device_name = $("device_name").val();
-	var device_mode = $("device_mode").val();
-	var pixel = $("pixel").val();
-	var ram = $("ram").val();
-	var cpu_hz = $("cpu_hz").val();
-	var screen_size = $("screen_size").val();
-	var color = $("color").val();
-	var for_camara = $("for_camara").val();
-	var back_camara = $("back_camara").val();
-	var sim_number = $("sim_number").val();
-	var sdcard = $("sdcard").val();
+	var device_name = $("#device_name").val();
+	var device_mode = $("#device_mode").val();
+	var pixel = $("#pixel").val();
+	var ram = $("#ram").val();
+	var cpu_hz = $("#cpu_hz").val();
+	var screen_size = $("#screen_size").val();
+	var color = $("#color").val();
+	var for_camara = $("#for_camara").val();
+	var back_camara = $("#back_camara").val();
+	var sim_number = $("#sim_number").val();
+	var sdcard = $("#sdcard").val();
 
-	alert(device_name + device_mode + pixel);
+	if(device_name == "" || device_mode == ""){
+		alert("【设备名】和【型号】不能为空！")
+	}else{
+		$.get("http://192.168.1.107/diviceManageSYS/php/devManage.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard},
+		function(data){
+		alert(data);
+		});
+	}
+	
+//	alert(device_name + device_mode + pixel + ram + cpu_hz + screen_size + color + for_camara + back_camara + sim_number + sdcard);
+}
+
+//清空设备信息
+function clearInfo(e){
+	$("#device_name").val("");
+	$("#device_mode").val("");
+	$("#pixel").val("");
+	$("#ram").val("");
+	$("#cpu_hz").val("");
+	$("#screen_size").val("");
+	$("#color").val("");
+	$("#for_camara").val("");
+	$("#back_camara").val("");
+	$("#sim_number").val("");
+	$("#sdcard").val("");
+}
+
+//设置默认信息
+function defaultInfo(e){
+	$("#device_name").val("");
+	$("#device_mode").val("");
+	$("#pixel").val("1024*768");
+	$("#ram").val("2");
+	$("#cpu_hz").val("");
+	$("#screen_size").val("4.5");
+	$("#color").val("白色");
+	$("#for_camara").val("200");
+	$("#back_camara").val("800");
+	$("#sim_number").val("");
+	$("#sdcard").val("");
 }
