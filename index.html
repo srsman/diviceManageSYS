@@ -22,14 +22,58 @@
 		    <button>剩余设备</button>
 	      </div>
 	    </div>	
-	    <div id="device_manage"></div>
+	    <div id="device_manage">
+		  <div id="ctrl_div1">
+	        <button>添加设备</button>
+		    <button>管理设备</button>
+			<button>搜索设备</button>
+	      </div>
+		  <div id="info">
+		    <table border="0" id="info_table">
+			  <tr>
+			    <th><label class="need_star">*</label><label>设备名：</label><input style="text" id="device_name"></input></th>
+				<th><label class="need_star">*</label><label>型号：</label><input style="text" id="device_mode"></input></th>
+				<th><label class="need_star"></label><label>分辨率：</label><input style="text"
+				id="pixel"></input></th>
+			  </tr>
+			  <tr>
+			    <th><label class="need_star"></label><label>内存：</label><input style="text" id="ram"></input></th>
+				<th><label class="need_star"></label><label>cpu频率：</label><input style="text" id="cpu_hz"></input></th>
+				<th><label class="need_star"></label><label>屏幕尺寸：</label><input style="text" id="screen_size"></input></th>
+			  </tr>
+			  <tr>
+			    <th><label class="need_star"></label><label>颜色：</label><input style="text"
+				id="color"></input></th>
+				<th><label class="need_star"></label><label>前置摄像：</label><input style="text" id="for_camara"></input></th>
+				<th><label class="need_star"></label><label>后置摄像：</label><input style="text" id="back_camara"></input></th>
+			  </tr>
+			  <tr>
+			    <th><label class="need_star"></label><label>SIM卡：</label><input style="text" id="sim_number"></input></th>
+				<th><label class="need_star"></label><label>SD卡：</label><input style="text" id="sdcard"></input></th>
+			  </tr>
+			</table>
+			<button id="add_divice_button" onclick="addDevice(event)">添加</button>
+		  </div>
+
+
+		</div>
 	  </div>
   	</div>
 	<div id="login_panel">	
       <div id="close_login" onclick="closeLogin()"></div>
+	  <div id="div_login">
+	    <div></div>
+		<div></div>
+		<div></div>
+	  </div>
 	</div>
 	<div id="registe_panel">
 	  <div id="close_register" onclick="closeRegister()"></div>
+	  <div id="div_register">
+	    <div></div>
+		<div></div>
+		<div></div>
+	  </div>
 	</div>
   </body>
 </html>
