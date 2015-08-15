@@ -32,19 +32,43 @@ class devManage{
 	public function getAllData(){
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices where device_name='小米'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		echo json_encode(array('result'=>$arr));
+	}
+
+	//查询数据库中所有数据show
+	public function getAllDataShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
 		$querry = "SELECT * FROM devices";
 		self::setCoding();
 		$result = mysql_query($querry);
 		$arr = array();
-		while($row = mysql_fetch_array($result)){
-			//echo var_dump($row);
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
 			$arr[] = $row;
-			//echo json_encode($row);
-			//echo "<br/>";
 		}
 		mysql_close($con);
-		echo json_encode($arr);
-		//echo $result;
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+
+	}
+
+	public function getAllData1(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard FROM devices where device_name='小米'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$row = mysql_fetch_array($result,MYSQL_ASSOC);
+		mysql_close($con);
+		echo json_encode($row);
 	}
 
 	//设置访问数据库编码
@@ -80,7 +104,7 @@ class devManage{
 	}
 }
 
-	$obj = new devManage;
-	$obj->addDevice();
+	//$obj = new devManage;
+	//$obj->getAllData();
 ?>
 

@@ -65,6 +65,44 @@
 		      <button>借出设备</button>
 		      <button>剩余设备</button>
 	        </div>
+			<div>
+			<table id="head_info" border="1">
+			  <tr>
+				<th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>修改</th><th>删除</th>
+			  </tr>
+			</table>
+			  <?php 
+			    require 'php/devManage.php';
+			    $obj = new devManage;
+				$result = $obj->getAllDataShow(); 
+				$jsonObj = json_decode($result);
+				for($i=0;$i<count($jsonObj->result);$i++){
+			  ?>
+			  <?php
+				//$search_result = "<table id='head_info' border='1'><tr><th></th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>修改</th><th>删除</th></tr></table>";
+				//echo $search_result;
+				//echo $jsonObj->result[0]->device_name;
+				echo "<table id='head_info' border='1'><tr><th>"
+			  ?>
+			  <?php echo $jsonObj->result[$i]->device_name; ?>				
+			  <?php echo "</th><th>" ?>
+			  <?php echo $jsonObj->result[$i]->device_mode; ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo $jsonObj->result[$i]->pixel; ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo $jsonObj->result[$i]->ram; ?>
+			  <?php echo "</th><th>" ?> 
+			  <?php echo $jsonObj->result[$i]->screen_size; ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo $jsonObj->result[$i]->sim_number; ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo "<button>修改设备</button>" ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo "<button>删除设备</button>" ?>
+			  <?php echo "</th></tr></table>";
+				}
+			  ?>
+			</div>
 		  </div>
 
 

@@ -17,7 +17,9 @@ body {padding:0px;margin:0px;}
 #ctrl_div1 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
-#info {width:1012px;min-height:100%;background-color:#bbbbbb;margin:0 auto;}
+
+#div_add_dev {width:100%;min-height:90%;_background:yellow;}
+#info {width:1012px;min-height:90%;background-color:#bbbbbb;margin:0 auto;_display:none;}
 #info_table th {width:330px;height:60px;}
 #info_table label {float:left;position:relative;top:10px;}
 #info_table input {width:230px;height:40px;float:right;font-size:18;}
@@ -25,6 +27,18 @@ body {padding:0px;margin:0px;}
 #add_divice_button {width:230px;height:40px;margin-top:10px;font-size:18;margin-left:102;}
 #clear_button {width:230px;height:40px;margin-top:10px;font-size:18;margin-left:96;}
 #default_button {width:230px;height:40px;margin-top:10px;font-size:18;margin-left:96;}
+
+#div_manage_dev {width:100%;min-height:90%;background:#555555;display:none;}
+
+#div_search_dev {width:100%;min-height:90%;background:#888888;display:none;}
+#div_search_dev div:nth-child(2) {width:100%;min-height:80%;background-color:white;}
+#ctrl_div2 {height: 50px;width:100%;background-color: #999999;}
+#ctrl_div2 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
+#ctrl_div2 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
+#ctrl_div2 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
+#head_info {margin:0 auto;border-color:#cccccc;_border-left:none;_border-right:none;border-top:none;border-collapse:collapse;}
+#head_info th {width:155px;height:40px;border-color:#cccccc;_border-left:none;border-top:none;_border-right:none;border-collapse:collapse;}
+
 #login_panel {width:100%;height:100%;background-color:#aabbff;display:none;position:absolute;top:0px;}
 #registe_panel {width:100%;height:100%;background-color:green;display:none;position:absolute;top:0px;}
 #close_login {width:100px;height:100px;float:right;background-image:url(../img/close_up.png);margin:10px;}

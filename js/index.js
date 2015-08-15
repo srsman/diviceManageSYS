@@ -65,7 +65,7 @@ function addDevice(e){
 	if(device_name == "" || device_mode == ""){
 		alert("【设备名】和【型号】不能为空！")
 	}else{
-		$.get("http://192.168.1.107/diviceManageSYS/php/devManage.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard},
+		$.get("http://10.10.253.105/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard},
 		function(data){
 		alert(data);
 		});
@@ -102,4 +102,23 @@ function defaultInfo(e){
 	$("#back_camara").val("800");
 	$("#sim_number").val("");
 	$("#sdcard").val("");
+}
+
+//设备管理界面切换
+function manDevSwitch(e){
+	e = e || window.event;
+	if(e.target.id == "div_add_but"){
+		$("#div_add_dev").css("display","block");
+		$("#div_manage_dev").css("display","none");
+		$("#div_search_dev").css("display","none");
+	}else if(e.target.id == "div_manage_but"){
+		$("#div_add_dev").css("display","none");
+		$("#div_manage_dev").css("display","block");
+		$("#div_search_dev").css("display","none");
+	}else if(e.target.id == "div_search_but"){
+		$("#div_add_dev").css("display","none");
+		$("#div_manage_dev").css("display","none");
+		$("#div_search_dev").css("display","block");
+	}
+
 }
