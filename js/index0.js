@@ -4,15 +4,14 @@ var ipAddr = "192.168.1.106"
 function divSwitch(e){
 	e = e || window.event;
 	if(e.target.id == "label_search"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+		window.location.href="http://192.168.1.106/diviceManageSYS/"
 		//$("#label_search").css("color","white");
 		//$("#label_manage").css("color","#dddddd");
 		//$("#show_devices").css("display","block");
 		//$("#device_manage").css("display","none");
 	}else if(e.target.id == "label_manage")
 	{
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
-		//window.location.href="http://192.168.1.106/diviceManageSYS/devManage.php"
+		window.location.href="http://192.168.1.106/diviceManageSYS/devManage.php"
 		//$("#label_search").css("color","#dddddd");
 		//$("#label_manage").css("color","white");
 		//$("#show_devices").css("display","none");
@@ -24,34 +23,30 @@ function divSwitch(e){
 function divLogin(e){
 	e = e||window.event;
 	if (e.target.id == "label_login"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/login.php"
-		//$("#main").css("display","none");
-		//$("#login_panel").css("display","block");
-		//$("#registe_panel").css("display","none");
+		$("#main").css("display","none");
+		$("#login_panel").css("display","block");
+		$("#registe_panel").css("display","none");
 	}else if(e.target.id == "label_register"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/register.php"
-		//$("#main").css("display","none");
-		//$("#login_panel").css("display","none");
-		//$("#registe_panel").css("display","block");		
+		$("#main").css("display","none");
+		$("#login_panel").css("display","none");
+		$("#registe_panel").css("display","block");		
 	}
 }
 
 //关闭登陆界面
 function closeLogin(e){
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
-	//e = e||window.event;
-	//$("#main").css("display","block");
-	//$("#login_panel").css("display","none");
-	//$("#registe_panel").css("display","none");
+	e = e||window.event;
+	$("#main").css("display","block");
+	$("#login_panel").css("display","none");
+	$("#registe_panel").css("display","none");
 }
 
 //关闭注册界面
 function closeRegister(e){
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
-	//e = e||window.event;
-	//$("#main").css("display","block");
-	//$("#login_panel").css("display","none");
-	//$("#registe_panel").css("display","none");
+	e = e||window.event;
+	$("#main").css("display","block");
+	$("#login_panel").css("display","none");
+	$("#registe_panel").css("display","none");
 }
 
 //添加一个设备
@@ -68,12 +63,11 @@ function addDevice(e){
 	var back_camara = $("#back_camara").val();
 	var sim_number = $("#sim_number").val();
 	var sdcard = $("#sdcard").val();
-	var platform = $("#platform").val();
 
 	if(device_name == "" || device_mode == ""){
 		alert("【设备名】和【型号】不能为空！")
 	}else{
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform},
+		$.get("http://" + "192.168.1.106" + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard},
 		function(data){
 		alert(data);
 		});
@@ -95,7 +89,6 @@ function clearInfo(e){
 	$("#back_camara").val("");
 	$("#sim_number").val("");
 	$("#sdcard").val("");
-	$("#platform").val("");
 }
 
 //设置默认信息
@@ -111,39 +104,24 @@ function defaultInfo(e){
 	$("#back_camara").val("800");
 	$("#sim_number").val("");
 	$("#sdcard").val("");
-	$("#platform").val("android");
 }
 
 //设备管理界面切换
 function manDevSwitch(e){
 	e = e || window.event;
 	if(e.target.id == "div_add_but"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageAdd.php"
-		//$("#div_add_dev").css("display","block");
-		//$("#div_manage_dev").css("display","none");
-		//$("#div_search_dev").css("display","none");
+		$("#div_add_dev").css("display","block");
+		$("#div_manage_dev").css("display","none");
+		$("#div_search_dev").css("display","none");
 	}else if(e.target.id == "div_manage_but"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
-		//$("#div_add_dev").css("display","none");
-		//$("#div_manage_dev").css("display","block");
-		//$("#div_search_dev").css("display","none");
+		$("#div_add_dev").css("display","none");
+		$("#div_manage_dev").css("display","block");
+		$("#div_search_dev").css("display","none");
 	}else if(e.target.id == "div_search_but"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
+		window.location.href="http://192.168.1.106/diviceManageSYS/devManageSearchAll.php"
 		//$("#div_add_dev").css("display","none");
 		//$("#div_manage_dev").css("display","none");
 		//$("#div_search_dev").css("display","block");
 	}
-}
 
-function searchDevice(e){
-	e = e || window.event;
-	if(e.target.id == "ctrl_div2_all"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
-	}else if(e.target.id == "ctrl_div2_borrowing"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchBorrowing.php"
-	}else if(e.target.id == "ctrl_div2_noborrow"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchNoborrowing.php"
-	}else if(e.target.id == "ctrl_div2_applying"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchApplying.php"
-	}
 }

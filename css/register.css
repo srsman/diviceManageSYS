@@ -1,0 +1,15 @@
+body {padding:0px;margin:0px;}
+#login_panel {width:100%;height:100%;background-color:#aabbff;display:none;position:absolute;top:0px;}
+#registe_panel {width:100%;height:100%;background-color:green;display:block;position:absolute;top:0px;}
+#close_login {width:100px;height:100px;float:right;background-image:url(../img/close_up.png);margin:10px;}
+#close_login:hover {background-image: url(../img/close_down.png);}
+#close_register {width:100px;height:100px;float:right;background-image:url(../img/close_up.png);margin:10px;}
+#close_register:hover {background-image: url(../img/close_down.png);}
+#div_login {width:400px;height:300px;background-color:green;margin:0 auto;top:25%;position:relative;}
+#div_login div:nth-child(1) {width:400px;height:100px;background-color:yellow;}
+#div_login div:nth-child(2) {width:400px;height:100px;background-color:blue;}
+#div_login div:nth-child(3) {width:400px;height:100px;}
+#div_register {width:400px;height:300px;background-color:green;margin:0 auto;top:25%;position:relative;}
+#div_register div:nth-child(1) {width:400px;height:100px;background-color:yellow;}
+#div_register div:nth-child(2) {width:400px;height:100px;background-color:blue;}
+#div_register div:nth-child(3) {width:400px;height:100px;background-color:red;}

@@ -57,18 +57,70 @@ class devManage{
 		mysql_close($con);
 		$resultJson = json_encode(array('result'=>$arr));
 		return $resultJson;
-
 	}
 
-	public function getAllData1(){
+	//查询数据库中剩余的设备
+	public function getNoApplyforDataShow(){
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "SELECT device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard FROM devices where device_name='小米'";
+		$querry = "SELECT * FROM devices WHERE status='0'";
 		self::setCoding();
 		$result = mysql_query($querry);
-		$row = mysql_fetch_array($result,MYSQL_ASSOC);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
 		mysql_close($con);
-		echo json_encode($row);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
+	//查询数据库中申请签借的设备
+	public function getApplyforDataShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE status='1'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
+	//查询数据库中借出的设备
+	public function getBorrowedDataShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE status='2'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
+	//查询数据库中申请签还的设备
+	public function getApplyforReturnDataShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE status='3'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
 	}
 
 	//设置访问数据库编码
@@ -91,11 +143,11 @@ class devManage{
 		$back_camara = $_GET['back_camara'];
 		$sim_number = $_GET['sim_number'];
 		$sdcard = $_GET['sdcard'];
+		$platform = $_GET['platform'];
 
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard')";	
-//		$querry = "INSERT INTO devices (device_name) VALUES ('$device_name')";
+		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform')";	
 		self::setCoding();
 		mysql_query($querry);
 		mysql_close($con);
