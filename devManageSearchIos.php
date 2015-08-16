@@ -76,7 +76,7 @@
 			  <?php 
 			    require 'php/devManage.php';
 			    $obj = new devManage;
-				$result = $obj->getAllDataShow(); 
+				$result = $obj->getIosDataShow(); 
 				$jsonObj = json_decode($result);
 				for($i=0;$i<count($jsonObj->result);$i++){
 			  ?>

@@ -64,11 +64,13 @@
 		      <button id="ctrl_div2_borrowing" onclick="searchDevice(event)">借出设备</button>
 		      <button id="ctrl_div2_noborrow" onclick="searchDevice(event)">剩余设备</button>
 			  <button id="ctrl_div2_applying" onclick="searchDevice(event)">申请中</button>
+			  <button id="ctrl_div2_android" onclick="searchDevice(event)">Android</button>
+			  <button id="ctrl_div2_ios" onclick="searchDevice(event)">ios</button>
 	        </div>
 			<div>
 			<table id="head_info" border="1">
 			  <tr>
-				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>修改</th><th>删除</th>
+				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请人</th><th>确认申请</th><th>否定申请</th>
 			  </tr>
 			</table>
 			  <?php 
@@ -98,9 +100,11 @@
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->sim_number; ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>修改设备</button>" ?>
+			  <?php echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>删除设备</button>" ?>
+			  <?php echo "<button>确认申请</button>" ?>
+			  <?php echo "</th><th>" ?>
+			  <?php echo "<button>否定申请</button>" ?>
 			  <?php echo "</th></tr></table>"; ?>
 			  <?php } ?>
 			</div>

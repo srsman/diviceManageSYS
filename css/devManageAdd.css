@@ -11,15 +11,15 @@ body {padding:0px;margin:0px;}
 #ctrl_div button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
-#show_devices {width:100%;height:100%;background-color:#cc9900;display:none;}
-#device_manage {width:100%;min-height:100%;background-color:green;display:block;}
+#show_devices {width:100%;height:100%;background-color:white;display:none;}
+#device_manage {width:100%;min-height:100%;background-color:#ccccbb;display:block;}
 #ctrl_div1 {height: 50px;width:100%;background-color: #cccccc;}
 #ctrl_div1 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
 
 #div_add_dev {width:100%;min-height:90%;_background:yellow;display:block;}
-#info {width:1012px;min-height:90%;background-color:#bbbbbb;margin:0 auto;_display:none;}
+#info {width:1012px;min-height:90%;_background-color:white;margin:0 auto;_display:none;}
 #info_table th {width:330px;height:60px;}
 #info_table label {float:left;position:relative;top:10px;}
 #info_table input {width:230px;height:40px;float:right;font-size:18;}

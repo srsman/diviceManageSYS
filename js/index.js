@@ -145,5 +145,46 @@ function searchDevice(e){
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchNoborrowing.php"
 	}else if(e.target.id == "ctrl_div2_applying"){
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchApplying.php"
+	}else if(e.target.id == "ctrl_div2_android"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAndroid.php"
+	}else if(e.target.id == "ctrl_div2_ios"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchIos.php"
 	}
+}
+
+function indexSearchDevice(e){
+	e = e || window.event;
+	if(e.target.id == "ctrl_div_all"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/index.php"
+	}else if(e.target.id == "ctrl_div_borrowing"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/indexBorrowing.php"
+	}else if(e.target.id == "ctrl_div_noborrow"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/indexNoborrowing.php"
+	}else if(e.target.id == "ctrl_div2_android"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/indexAndroid.php"
+	}else if(e.target.id == "ctrl_div2_ios"){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/indexIos.php"
+	}
+}
+
+//申请设备
+function applyForDev(e){
+	e = e || window.event;
+	id = e.target.id;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id},
+		function(data){
+	});
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+}
+
+//取消申请
+function cancleApplyForDev(e){
+	e = e || window.event;
+	id = e.target.id;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/cancleApplyForDev.php", {id:id},
+		function(data){
+	});
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
 }

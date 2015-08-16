@@ -64,6 +64,8 @@
 		      <button id="ctrl_div2_borrowing" onclick="searchDevice(event)">借出设备</button>
 		      <button id="ctrl_div2_noborrow" onclick="searchDevice(event)">剩余设备</button>
 			  <button id="ctrl_div2_applying" onclick="searchDevice(event)">申请中</button>
+			  <button id="ctrl_div2_android" onclick="searchDevice(event)">Android</button>
+			  <button id="ctrl_div2_ios" onclick="searchDevice(event)">ios</button>
 	        </div>
 			<div>
 			<table id="head_info" border="1">

@@ -32,7 +32,7 @@
 			  <?php 
 			    require 'php/devManage.php';
 			    $obj = new devManage;
-				$result = $obj->getAllDataShow(); 
+				$result = $obj->getIosDataShow(); 
 				$jsonObj = json_decode($result);
 				for($i=0;$i<count($jsonObj->result);$i++){
 			  ?>
@@ -56,14 +56,7 @@
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->sim_number; ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button id='" ?>
-			  <?php echo $jsonObj->result[$i]->id; ?>
-			  <?php echo "'" ?>
-			  <?php if($jsonObj->result[$i]->status != 1){ ?>
-			  <?php echo " onclick='applyForDev(event)'>申请设备</button>" ?>
-			  <?php }else if($jsonObj->result[$i]->status == 1){ ?>
-			  <?php echo " onclick='cancleApplyForDev(event)'>取消申请</button>" ?>
-			  <?php } ?>
+			  <?php echo "<button>申请设备</button>" ?>
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th></tr></table>"; ?>

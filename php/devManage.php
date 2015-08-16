@@ -123,6 +123,38 @@ class devManage{
 		return $resultJson;
 	}
 
+	//查询数据库中Android设备
+	public function getAndroidShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE platform='android'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
+	//查询数据库中ios设备
+	public function getIosDataShow(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE platform='ios'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
 	//设置访问数据库编码
 	public function setCoding(){
 		mysql_query("SET NAMES 'UTF8'");  
@@ -150,13 +182,37 @@ class devManage{
 		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform')";	
 		self::setCoding();
 		mysql_query($querry);
-		mysql_close($con);
-		
+		mysql_close($con);		
 		echo "设备添加成功！";
 	}
+
+	//申请设备
+	public function applyFor(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET status='1' WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+		echo $id;
+	}
+	
+	//取消申请
+	public function cancleAplyFor(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET status='0' WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+		echo $id;
+	}
+
 }
 
 	//$obj = new devManage;
-	//$obj->getAllData();
+	//$obj->applyFor();
 ?>
 

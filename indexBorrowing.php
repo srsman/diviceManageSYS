@@ -26,13 +26,13 @@
 		  <div>
 			<table id="head_info" border="1">
 			  <tr>
-				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请设备</th><th>申请人</th>
+				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th>
 			  </tr>
 			</table>
 			  <?php 
 			    require 'php/devManage.php';
 			    $obj = new devManage;
-				$result = $obj->getAllDataShow(); 
+				$result = $obj->getBorrowedDataShow(); 
 				$jsonObj = json_decode($result);
 				for($i=0;$i<count($jsonObj->result);$i++){
 			  ?>
@@ -55,17 +55,6 @@
 			  <?php echo $jsonObj->result[$i]->screen_size; ?>
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->sim_number; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo "<button id='" ?>
-			  <?php echo $jsonObj->result[$i]->id; ?>
-			  <?php echo "'" ?>
-			  <?php if($jsonObj->result[$i]->status != 1){ ?>
-			  <?php echo " onclick='applyForDev(event)'>申请设备</button>" ?>
-			  <?php }else if($jsonObj->result[$i]->status == 1){ ?>
-			  <?php echo " onclick='cancleApplyForDev(event)'>取消申请</button>" ?>
-			  <?php } ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th></tr></table>"; ?>
 			  <?php } ?>
 		  </div>
