@@ -102,7 +102,10 @@
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>确认申请</button>" ?>
+			  <?php echo "<button id='" ?>
+			  <?php echo $jsonObj->result[$i]->id; ?>
+			  <?php echo "'" ?>
+			  <?php echo  " onclick='verifyBorrow(event)'>确认申请</button>" ?>
 			  <?php echo "</th><th>" ?>
 			  <?php echo "<button>否定申请</button>" ?>
 			  <?php echo "</th></tr></table>"; ?>

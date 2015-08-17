@@ -1,5 +1,5 @@
 //查询设备和设备管理界面切换
-var ipAddr = "192.168.1.106"
+var ipAddr = "10.10.253.105"
 
 function divSwitch(e){
 	e = e || window.event;
@@ -187,4 +187,52 @@ function cancleApplyForDev(e){
 		function(data){
 	});
 	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+}
+
+//删除一个设备
+function delDevice(e){
+	e = e || window.event;
+	id = e.target.id;
+	url = location.href;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/delDevice.php", {id:id},
+		function(data){
+	});
+	window.location.href=url;
+}
+
+//确认申请设备
+function verifyBorrow(e){
+	e = e || window.event;
+	id = e.target.id;
+	url = location.href;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBorrow.php", {id:id},
+		function(data){
+	});
+	window.location.href=url;
+}
+
+//拒绝申请设备
+function refuseBorrow(e){
+	e = e || window.event;
+	id = e.target.id;
+	url = location.href;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/refuseBorrow.php", {id:id},
+		function(data){
+	});
+	window.location.href=url;
+}
+
+//确认归还
+function verifyBack(e){
+	e = e || window.event;
+	id = e.target.id;
+	url = location.href;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},
+		function(data){
+	});
+	window.location.href=url;
 }

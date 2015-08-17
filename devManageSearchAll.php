@@ -102,7 +102,10 @@
 			  <?php echo "</th><th>" ?>
 			  <?php echo "<button>修改设备</button>" ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>删除设备</button>" ?>
+			  <?php echo "<button id='" ?>
+			  <?php echo $jsonObj->result[$i]->id; ?>
+			  <?php echo "'" ?>
+			  <?php echo  " onclick='delDevice(event)'>删除设备</button>" ?>
 			  <?php echo "</th></tr></table>"; ?>
 			  <?php } ?>
 			</div>

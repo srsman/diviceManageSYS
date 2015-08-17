@@ -195,7 +195,6 @@ class devManage{
 		self::setCoding();
 		$result = mysql_query($querry);
 		mysql_close($con);
-		echo $id;
 	}
 	
 	//取消申请
@@ -207,12 +206,55 @@ class devManage{
 		self::setCoding();
 		$result = mysql_query($querry);
 		mysql_close($con);
-		echo $id;
+	}
+
+	//删除一条记录
+	public function delDevice(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "DELETE FROM devices WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+	}
+
+	//确认申请
+	public function verifyBorrow(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET status='2' WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+	}
+
+	//否定申请
+	public function refuseBorrow(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET status='0' WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+	}
+
+	//确认归还
+	public function verifyBack(){
+		$id = $_GET['id'];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET status='0' WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
 	}
 
 }
 
 	//$obj = new devManage;
-	//$obj->applyFor();
+	//$obj->getAllDataShow();
 ?>
 
