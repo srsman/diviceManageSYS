@@ -252,9 +252,16 @@ class devManage{
 		mysql_close($con);
 	}
 
+	//删除空格
+	function trimall($str)
+	{
+		$qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
+		return str_replace($qian,$hou,$str);    
+	}
+
 }
 
-	//$obj = new devManage;
-	//$obj->getAllDataShow();
+	$obj = new devManage;
+	$obj->getAllDataShow();
 ?>
 

@@ -1,5 +1,5 @@
 //查询设备和设备管理界面切换
-var ipAddr = "10.10.253.105"
+var ipAddr = "192.168.1.106"
 
 function divSwitch(e){
 	e = e || window.event;
@@ -171,11 +171,19 @@ function indexSearchDevice(e){
 function applyForDev(e){
 	e = e || window.event;
 	id = e.target.id;
-	id = id.replace(/\s+/g, "");
-	$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id},
-		function(data){
-	});
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+	textid = "#input" + id;
+	console.log(textid)
+	console.log($(textid).val())
+	if($(textid).val() != ""){
+		
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id},
+			function(data){
+		});
+		//window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+	}else{
+		alert("必须填写申请者的名字！")
+	}
+	
 }
 
 //取消申请

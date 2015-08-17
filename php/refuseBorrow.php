@@ -3,5 +3,5 @@ require 'devManage.php';
 
 
 $obj = new devManage;
-$obj->addDevice();
+$obj->refuseBorrow();
 ?>
