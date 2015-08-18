@@ -262,7 +262,7 @@ class devManage{
 
 }
 
-	//$obj = new devManage;
-	//$obj->getAllDataShow();
+	$obj = new devManage;
+	$obj->getAllDataShow();
 ?>
 

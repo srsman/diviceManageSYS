@@ -1,5 +1,5 @@
 //查询设备和设备管理界面切换
-var ipAddr = "10.10.253.105"
+var ipAddr = "192.168.1.106"
 
 function divSwitch(e){
 	e = e || window.event;
@@ -176,8 +176,8 @@ function applyForDev(e){
 	if(borrower != ""){
 		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id,borrower:borrower},
 		function(data){
-		});
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/";
+			window.location.href="http://" + ipAddr + "/diviceManageSYS/";
+		});		
 	}else{
 		alert("必须填写申请者的名字！");
 	}
@@ -189,9 +189,9 @@ function cancleApplyForDev(e){
 	id = e.target.id;
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/cancleApplyForDev.php", {id:id},
-		function(data){
+	function(data){
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/"
 	});
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
 }
 
 //删除一个设备
@@ -202,8 +202,8 @@ function delDevice(e){
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/delDevice.php", {id:id},
 		function(data){
+		window.location.href=url;
 	});
-	window.location.href=url;
 }
 
 //确认申请设备
@@ -214,8 +214,8 @@ function verifyBorrow(e){
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBorrow.php", {id:id},
 		function(data){
+		window.location.href=url;
 	});
-	window.location.href=url;
 }
 
 //拒绝申请设备
@@ -226,8 +226,8 @@ function refuseBorrow(e){
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/refuseBorrow.php", {id:id},
 		function(data){
+		window.location.href=url;
 	});
-	window.location.href=url;
 }
 
 //确认归还
@@ -238,6 +238,60 @@ function verifyBack(e){
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},
 		function(data){
+		window.location.href=url;
 	});
-	window.location.href=url;
+}
+
+function register(e){
+	e = e || window.event;
+	var loginname = $("#loginname").val();
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var repassword = $("#repassword").val();
+
+	if(loginname == ""){
+		alert("登录名不能为空！");
+	}else if(username == ""){
+		alert("用户名不能为空！");
+	}else if(password == ""){
+		alert("密码不能为空！");
+	}else{
+		if(password == repassword){
+			$.get("http://" + ipAddr + "/diviceManageSYS/php/addUser.php",{loginname:loginname,username:username,password:password},
+				function(data){
+				alert("注册成功！");
+				window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+			});
+		}else{
+			alert("两次输入的密码不一致！");
+		}
+	}
+}
+
+function login(e){
+	e = e || window.event;
+	var loginname = $("#login").val();
+	var password = $("#password").val();
+
+	if(login == ""){
+		alert("登录名不能为空！");
+	}else if(password == ""){
+		alert("密码不能为空！");
+	}else{
+		if(password == repassword){
+			$.get("http://" + ipAddr + "/diviceManageSYS/php/addUser.php",{loginname:loginname,password:password},
+				function(data){
+				if(data != "fail"){
+					var info = eval(data);
+					document.cookie="info="+data;"
+					window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"；
+				}else{
+					alert("用户名或密码错误！");
+				}
+				
+			});
+		}else{
+			alert("两次输入的密码不一致！");
+		}
+	}
 }

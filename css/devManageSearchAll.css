@@ -1,5 +1,5 @@
 body {padding:0px;margin:0px;}
-#main {height:100%;width:100%;background-color:green;display:block;}
+#main {height:100%;width:100%;_background-color:green;display:block;}
 #top_bar {height: 50px;width:100%;background-color: black;}
 #top_bar label:nth-child(1)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 50px;}
 #top_bar label:nth-child(2)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 250px;}
@@ -12,7 +12,7 @@ body {padding:0px;margin:0px;}
 #ctrl_div button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
 #ctrl_div button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
 #show_devices {width:100%;height:100%;background-color:#cc9900;display:none;}
-#device_manage {width:100%;min-height:100%;background-color:green;display:block;}
+#device_manage {width:100%;min-height:100%;_background-color:green;display:block;}
 #ctrl_div1 {height: 50px;width:100%;background-color: #cccccc;}
 #ctrl_div1 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
 #ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}

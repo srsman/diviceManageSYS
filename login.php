@@ -10,13 +10,13 @@
       <div id="close_login" onclick="closeLogin()"></div>
 	  <div id="div_login">
 	    <div>
-		  <label>登录名：</label><input style="text" />
+		  <label>登录名：</label><input style="text" id="login"/>
 		</div>
 		<div>
-		  <label>密码：</label><input style="text" />
+		  <label>密码：</label><input style="text" id="password" type="password"/>
 		</div>
 		<div>
-		  <button>登录</button>
+		  <button id="login_but">登录</button>
 		</div>
 	  </div>
 	</div>
