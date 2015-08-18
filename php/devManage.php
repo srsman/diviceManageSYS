@@ -189,9 +189,10 @@ class devManage{
 	//申请设备
 	public function applyFor(){
 		$id = $_GET['id'];
+		$borrower = $_GET['borrower'];
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "UPDATE devices SET status='1' WHERE id='$id'";
+		$querry = "UPDATE devices SET status='1',borrower='$borrower' WHERE id='$id'";
 		self::setCoding();
 		$result = mysql_query($querry);
 		mysql_close($con);
@@ -261,7 +262,7 @@ class devManage{
 
 }
 
-	$obj = new devManage;
-	$obj->getAllDataShow();
+	//$obj = new devManage;
+	//$obj->getAllDataShow();
 ?>
 

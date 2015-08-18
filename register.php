@@ -9,9 +9,21 @@
 	<div id="registe_panel">
 	  <div id="close_register" onclick="closeRegister()"></div>
 	  <div id="div_register">
-	    <div></div>
-		<div></div>
-		<div></div>
+	    <div>
+		  <label>登录名：</label><input style="text" />
+		</div>
+		<div>
+		  <label>用户名：</label><input style="text" />
+		</div>
+		<div>
+		  <label>密码：</label><input style="text" />
+		</div>
+		<div>
+		  <label>确认密码：</label><input style="text" />
+		</div>
+		<div>
+		  <button>注册</button>
+		</div>
 	  </div>
 	</div>
   </body>

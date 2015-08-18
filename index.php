@@ -68,13 +68,14 @@
 			  <?php } ?>
 			  <?php echo "</th><th>" ?>
 			  <?php if($jsonObj->result[$i]->status == 0){ ?>
-					<?php echo "<input style='text' class='input_name' id='input" ?>
-					<?php echo $jsonObj->result[$i]->id ; ?>
-				    <?php echo "'></input>" ?>
+					<?php echo "<input style='text' class='input_name' id='input" . $jsonObj->result[$i]->id. "' value=''/>" ?>
+					<?php //echo "<input style='text' class='input_name' id='input"?>
+					<?php //echo $jsonObj->result[$i]->id ; ?>
+				    <?php //echo "'></input>" ?>
 			  <?php }else{ ?>
 					<?php echo $jsonObj->result[$i]->borrower; ?>
 			  <?php } ?>
-			  <?php echo $jsonObj->result[$i]->borrower; ?>
+			  <?php //echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th></tr></table>"; ?>
 			  <?php } ?>
 		  </div>

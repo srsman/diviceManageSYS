@@ -1,5 +1,5 @@
 //查询设备和设备管理界面切换
-var ipAddr = "192.168.1.106"
+var ipAddr = "10.10.253.105"
 
 function divSwitch(e){
 	e = e || window.event;
@@ -75,7 +75,7 @@ function addDevice(e){
 	}else{
 		$.get("http://" + ipAddr + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform},
 		function(data){
-		alert(data);
+			alert(data);
 		});
 	}
 	
@@ -171,19 +171,16 @@ function indexSearchDevice(e){
 function applyForDev(e){
 	e = e || window.event;
 	id = e.target.id;
-	textid = "#input" + id;
-	console.log(textid)
-	console.log($(textid).val())
-	if($(textid).val() != ""){
-		
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id},
-			function(data){
+	textid = "#input" + id.replace(/\s+/g, "");
+	borrower = $(textid).val();	
+	if(borrower != ""){
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id,borrower:borrower},
+		function(data){
 		});
-		//window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/";
 	}else{
-		alert("必须填写申请者的名字！")
+		alert("必须填写申请者的名字！");
 	}
-	
 }
 
 //取消申请

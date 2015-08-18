@@ -9,9 +9,15 @@
 	<div id="login_panel">	
       <div id="close_login" onclick="closeLogin()"></div>
 	  <div id="div_login">
-	    <div></div>
-		<div></div>
-		<div></div>
+	    <div>
+		  <label>登录名：</label><input style="text" />
+		</div>
+		<div>
+		  <label>密码：</label><input style="text" />
+		</div>
+		<div>
+		  <button>登录</button>
+		</div>
 	  </div>
 	</div>
   </body>

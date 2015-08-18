@@ -56,9 +56,26 @@
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->sim_number; ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>申请设备</button>" ?>
+			  <?php if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){ ?>
+				  <?php echo "<button id='" ?>
+				  <?php echo $jsonObj->result[$i]->id; ?>
+				  <?php echo "'" ?>			  
+				  <?php if($jsonObj->result[$i]->status == 0){ ?>
+				  <?php echo " onclick='applyForDev(event)'>申请设备</button>" ?>
+				  <?php }else if($jsonObj->result[$i]->status == 1){ ?>
+				  <?php echo " onclick='cancleApplyForDev(event)'>取消申请</button>" ?>
+				  <?php } ?>
+			  <?php } ?>
 			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->borrower; ?>
+			  <?php if($jsonObj->result[$i]->status == 0){ ?>
+					<?php echo "<input style='text' class='input_name' id='input" . $jsonObj->result[$i]->id. "' value=''/>" ?>
+					<?php //echo "<input style='text' class='input_name' id='input"?>
+					<?php //echo $jsonObj->result[$i]->id ; ?>
+				    <?php //echo "'></input>" ?>
+			  <?php }else{ ?>
+					<?php echo $jsonObj->result[$i]->borrower; ?>
+			  <?php } ?>
+			  <?php //echo $jsonObj->result[$i]->borrower; ?>
 			  <?php echo "</th></tr></table>"; ?>
 			  <?php } ?>
 		  </div>

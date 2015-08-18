@@ -70,7 +70,7 @@
 			<div>
 			<table id="head_info" border="1">
 			  <tr>
-				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>修改</th><th>删除</th>
+				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>删除</th>
 			  </tr>
 			</table>
 			  <?php 
@@ -99,8 +99,6 @@
 			  <?php echo $jsonObj->result[$i]->screen_size; ?>
 			  <?php echo "</th><th>" ?>
 			  <?php echo $jsonObj->result[$i]->sim_number; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>修改设备</button>" ?>
 			  <?php echo "</th><th>" ?>
 			  <?php echo "<button>删除设备</button>" ?>
 			  <?php echo "</th></tr></table>"; ?>
