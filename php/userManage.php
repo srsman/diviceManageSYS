@@ -1,8 +1,29 @@
 <?php 
-require '../cfg/config.php';
+//require '../cfg/config.php';
+
+function isRequire($str){
+	$arrs  = get_included_files();
+	$len = count($arrs);
+	$i=0;	
+	while($i < $len){
+		if(strstr($arrs[$i],"config.php"))
+		{
+			return "yes";
+		}
+		$i++;
+	}
+	return "no";
+}
+$judge = isRequire("config.php");
+if($judge == "yes"){
+
+}else if($judge == "no"){
+	require '../cfg/config.php';
+}
+
 
 class userManage{
-	//Á¬½ÓÊı¾İ¿â£¬²¢·µ»ØÁ¬½Ó¶ÔÏó
+	//è¿æ¥æ•°æ®åº“ï¼Œå¹¶è¿”å›è¿æ¥å¯¹è±¡
 	public function connectMysql(){
 		$dbInfo = new Config;
 		$username = $dbInfo->username;
@@ -17,7 +38,7 @@ class userManage{
 		}
 	}
 
-	//ÏòÊı¾İ¿âÌí¼ÓÉè±¸
+	//å‘æ•°æ®åº“æ·»åŠ è®¾å¤‡
 	public function addUser(){
 		$loginname = $_GET['loginname'];
 		$username = $_GET['username'];
@@ -32,59 +53,113 @@ class userManage{
 		mysql_close($con);		
 	}
 
-	//ÉèÖÃ·ÃÎÊÊı¾İ¿â±àÂë
+	//è®¾ç½®è®¿é—®æ•°æ®åº“ç¼–ç 
 	public function setCoding(){
 		mysql_query("SET NAMES 'UTF8'");  
 		mysql_query("SET CHARACTER SET UTF8");  
 		mysql_query("SET CHARACTER_SET_RESULTS=UTF8'"); 
 	}
 
-	//µÇÂ¼ÅĞ¶ÏÃÜÂëÊÇ·ñÕıÈ·
+	//ç™»å½•åˆ¤æ–­å¯†ç æ˜¯å¦æ­£ç¡®
 	public function login(){
-		$username = $_GET['username'];
+		$username = $_GET['loginname'];
 		$password = $_GET['password'];
 
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "SELECT password FROM users WHERE loginname='admin'";
+		$querry = "SELECT loginname,password FROM users WHERE loginname='$username'";
 		self::setCoding();
 		$result = mysql_query($querry);
 		$row = mysql_fetch_array($result);
-		$search = $row['password'];
+		$search = $row['loginname'];
+		$search1 = $row['password'];
 		mysql_close($con);
-		if($password == $search){
-			$info = getSession(11);
-			return $info;
+		if($password == $search1 && $username == $search){
+			$info = self::getSession(11);
+			$con = self::connectMysql();
+			self::setCoding();
+			mysql_select_db("deviceSYS", $con);
+			$querry = "UPDATE users SET session='$info' WHERE loginname='$username'";			
+			mysql_query($querry);
+			mysql_close($con);
+			echo $info;
 		}else{
-			return "fail";
+			echo "fail";
 		}
 	}
 
-	//»ñÈ¡µÇÂ¼µÄËæ»ú×Ö·û´®
+	
+	
+	//é€€å‡ºç™»å½•
+	public function logout(){
+		//$session = $_GET['info'];	
+		$session = "kmoyDHSX6$%";
+		$con = self::connectMysql();
+		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE users SET session='' WHERE session='$session'";	
+		mysql_query($querry);
+		mysql_close($con);
+	}
+
+	//åˆ¤æ–­æ˜¯å¦ç™»å½•
+	public function islogin(){
+		$session = $_GET['info'];
+		$con = self::connectMysql();
+		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT session FROM users WHERE session='$session'";	
+		$result = mysql_query($querry);
+		$row = mysql_fetch_array($result);
+		mysql_close($con);
+		if($row['session'] != ""){
+			return "yes";
+		}else{
+			return "no";
+		}
+	}
+
+	//è·å–ç”¨æˆ·æƒè§’è‰²
+	public function getRole(){
+		$session = $_GET['info'];
+		$con = self::connectMysql();
+		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT role FROM users WHERE session='$session'";	
+		$result = mysql_query($querry);
+		$row = mysql_fetch_array($result);
+		$role = $row["role"];
+		return $role;
+	}
+
+
+
+	//è·å–ç™»å½•çš„éšæœºå­—ç¬¦ä¸²
 	function getSession($length)  
 	{  	 
-		// ÃÜÂë×Ö·û¼¯£¬¿ÉÈÎÒâÌí¼ÓÄãĞèÒªµÄ×Ö·û  
+		// å¯†ç å­—ç¬¦é›†ï¼Œå¯ä»»æ„æ·»åŠ ä½ éœ€è¦çš„å­—ç¬¦  
 		$chars = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',  
 		'i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's',  
 		't', 'u', 'v', 'w', 'x', 'y','z', 'A', 'B', 'C', 'D',  
 		'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M', 'N', 'O',  
 		'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y','Z',  
 		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!',  
-		'@','#', '$', '%', '^', '&', '*', '(', ')', '-', '_',  
-		'[', ']', '{', '}', '<', '>', '~', '`', '+', '=', ',',  
-		'.', ';', ':', '/', '?', '|');	
-		// ÔÚ $chars ÖĞËæ»úÈ¡ $length ¸öÊı×éÔªËØ¼üÃû  
+		'@','#', '$', '%', '^', '*', '(', ')', '-', '_',  
+		'[', ']', '{', '}', '<', '>', '~', '`', '+', '=', ',',);	
+
+		// åœ¨ $chars ä¸­éšæœºå– $length ä¸ªæ•°ç»„å…ƒç´ é”®å  
 		$keys = array_rand($chars,$length);
 		$password = "";  
 		for($i = 0; $i < $length; $i++)  
 		{  
-			// ½« $length ¸öÊı×éÔªËØÁ¬½Ó³É×Ö·û´®  
+			// å°† $length ä¸ªæ•°ç»„å…ƒç´ è¿æ¥æˆå­—ç¬¦ä¸²  
 			$password .= $chars[$keys[$i]];  
 		}  
-		echo $password;  
+		return $password;  
 	} 
 }
 
-$obj = new userManage;
-$obj->login();
+
+//$obj = new userManage;
+//$obj->logout();
 ?>

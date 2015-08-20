@@ -1,5 +1,26 @@
 <?php
-require '../cfg/config.php';
+
+//判断是否导入了该依赖文件
+function isRequire($str){
+	$arrs  = get_included_files();
+	$len = count($arrs);
+	$i=0;	
+	while($i < $len){
+		if(strstr($arrs[$i],"config.php"))
+		{
+			return "yes";
+		}
+		$i++;
+	}
+	return "no";
+}
+$judge = isRequire("config.php");
+if($judge == "yes"){
+
+}else if($judge == "no"){
+	require '../cfg/config.php';
+}
+
 
 class devManage{
 	//连接数据库，并返回连接对象
@@ -262,7 +283,7 @@ class devManage{
 
 }
 
-	$obj = new devManage;
-	$obj->getAllDataShow();
+	//$obj = new devManage;
+	//$obj->getAllDataShow();
 ?>
 

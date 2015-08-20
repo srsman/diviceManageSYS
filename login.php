@@ -16,7 +16,7 @@
 		  <label>密码：</label><input style="text" id="password" type="password"/>
 		</div>
 		<div>
-		  <button id="login_but">登录</button>
+		  <button id="login_but" onclick="login(event)">登录</button>
 		</div>
 	  </div>
 	</div>

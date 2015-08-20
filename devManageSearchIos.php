@@ -6,6 +6,19 @@
   	<link href="css/devManageSearchAll.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+	<?php  
+		require 'php/userManage.php';
+		$obj = new userManage;
+		$result = $obj->islogin(); 
+		$role = $obj->getRole(); 
+		if($result == "yes" && $role != 2){
+
+		}else{
+			echo "<script language='javascript'>";
+			echo "jumpToIndex();";
+			echo "</script>";
+		}
+	?>
   	<div id="main">
   	  <div id="top_bar">
   	  	<label>炫一下设备管理系统</label>

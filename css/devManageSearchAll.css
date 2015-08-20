@@ -30,7 +30,7 @@ body {padding:0px;margin:0px;}
 
 #div_manage_dev {width:100%;min-height:90%;background:#555555;display:none;}
 
-#div_search_dev {width:100%;min-height:90%;background:#888888;display:block;}
+#div_search_dev {width:100%;min-height:90%;_background:#888888;display:block;}
 #div_search_dev div:nth-child(2) {width:100%;min-height:80%;background-color:white;}
 #ctrl_div2 {height: 50px;width:100%;background-color: #999999;}
 #ctrl_div2 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
