@@ -196,10 +196,12 @@ function applyForDev(e){
 	id = e.target.id;
 	textid = "#input" + id.replace(/\s+/g, "");
 	borrower = $(textid).val();	
+	var url = location.href;
 	if(borrower != ""){
 		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id,borrower:borrower},
 		function(data){
-			window.location.href="http://" + ipAddr + "/diviceManageSYS/";
+			//window.location.href="http://" + ipAddr + "/diviceManageSYS/";
+			window.location.href=url;
 		});		
 	}else{
 		alert("必须填写申请者的名字！");
@@ -211,9 +213,11 @@ function cancleApplyForDev(e){
 	e = e || window.event;
 	id = e.target.id;
 	id = id.replace(/\s+/g, "");
+	var url = location.href;
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/cancleApplyForDev.php", {id:id},
 	function(data){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+		//window.location.href="http://" + ipAddr + "/diviceManageSYS/"
+		window.location.href=url;
 	});
 }
 
@@ -238,7 +242,7 @@ function delDevice(e){
 function verifyBorrow(e){
 	e = e || window.event;
 	id = e.target.id;
-	url = location.href;
+	var url = location.href;
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBorrow.php", {id:id},
 		function(data){

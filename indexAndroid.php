@@ -3,7 +3,7 @@
   	<title>设备管理系统</title>
   </head>
   <body>
-  	<link href="css/index.css" rel="stylesheet" type="text/css"/>
+  	<link href="css/indexAndroid.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
   	<div id="main">

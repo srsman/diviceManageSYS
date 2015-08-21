@@ -30,6 +30,7 @@
 			  </tr>
 			</table>
 			  <?php 
+			    require 'cfg/config.php';
 			    require 'php/devManage.php';
 			    $obj = new devManage;
 				$result = $obj->getAllDataShow(); 
