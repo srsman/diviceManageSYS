@@ -222,12 +222,21 @@ class devManage{
 	//取消申请
 	public function cancleAplyFor(){
 		$id = $_GET['id'];
+		self::setCoding();
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "UPDATE devices SET status='0' WHERE id='$id'";
-		self::setCoding();
+		$querry = "SELECT status FROM devices WHERE id='$id'";		
 		$result = mysql_query($querry);
+		$row = mysql_fetch_array($result);
+		$status = $row['status'];
 		mysql_close($con);
+		if($status == 1){
+			$con = self::connectMysql();
+			mysql_select_db("deviceSYS", $con);
+			$querry = "UPDATE devices SET status='0' WHERE id='$id'";		
+			$result = mysql_query($querry);
+			mysql_close($con);
+		}		
 	}
 
 	//删除一条记录
