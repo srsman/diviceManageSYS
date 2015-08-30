@@ -14,11 +14,12 @@ function isRequire($str){
 	}
 	return "no";
 }
+
 $judge = isRequire("config.php");
 if($judge == "yes"){
 
 }else if($judge == "no"){
-	require '../cfg/config.php';
+	require 'cfg/config.php';
 }
 
 

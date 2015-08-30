@@ -1,5 +1,5 @@
-//查询设备和设备管理界面切换
-var ipAddr = "192.168.1.113"
+﻿//查询设备和设备管理界面切换
+var ipAddr = "127.0.0.1"
 
 function divSwitch(e){
 	e = e || window.event;

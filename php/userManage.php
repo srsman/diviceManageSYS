@@ -1,7 +1,7 @@
 <?php 
 //require '../cfg/config.php';
 
-function isRequire($str){
+function isRequire1($str){
 	$arrs  = get_included_files();
 	$len = count($arrs);
 	$i=0;	
@@ -14,11 +14,11 @@ function isRequire($str){
 	}
 	return "no";
 }
-$judge = isRequire("config.php");
+$judge = isRequire1("config.php");
 if($judge == "yes"){
 
 }else if($judge == "no"){
-	require '../cfg/config.php';
+	require 'cfg/config.php';
 }
 
 
