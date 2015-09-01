@@ -319,7 +319,6 @@ function login(e){
 				var strcookie=document.cookie.split(";")[0].split("=")[1];
 				var req = "?info=" + strcookie;
 				window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
-				//window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php";
 			}else{
 				alert("用户名或密码错误！");
 			}				

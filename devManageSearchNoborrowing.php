@@ -12,7 +12,7 @@
 		$result = $obj->islogin(); 
 		$role = $obj->getRole(); 
 		if($result == "yes" && $role != 2){
-
+	
 		}else{
 			echo "<script language='javascript'>";
 			echo "jumpToIndex();";
@@ -92,30 +92,27 @@
 				$result = $obj->getNoApplyforDataShow(); 
 				$jsonObj = json_decode($result);
 				for($i=0;$i<count($jsonObj->result);$i++){
-			  ?>
-			  <?php
 				//$search_result = "<table id='head_info' border='1'><tr><th></th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>修改</th><th>删除</th></tr></table>";
 				//echo $search_result;
 				//echo $jsonObj->result[0]->device_name;
-				echo "<table id='head_info' border='1'><tr><th>"
-			  ?>
-			  <?php echo $i + 1; ?>				
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->device_name; ?>				
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->device_mode; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->pixel; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->ram; ?>
-			  <?php echo "</th><th>" ?> 
-			  <?php echo $jsonObj->result[$i]->screen_size; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->sim_number; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo "<button>删除设备</button>" ?>
-			  <?php echo "</th></tr></table>"; ?>
-			  <?php } ?>
+				echo "<table id='head_info' border='1'><tr><th>";
+			  echo $i + 1;		
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->device_name;		
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->device_mode;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->pixel;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->ram;
+			  echo "</th><th>" ;
+			  echo $jsonObj->result[$i]->screen_size;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->sim_number;
+			  echo "</th><th>";
+			  echo "<button>删除设备</button>";
+			  echo "</th></tr></table>";
+			  } ?>
 			</div>
 		  </div>
 		</div>

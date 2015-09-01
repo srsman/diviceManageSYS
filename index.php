@@ -43,42 +43,44 @@
 				//echo $jsonObj->result[0]->device_name;
 				echo "<table id='head_info' border='1'><tr><th>"
 			  ?>
-			  <?php echo $i + 1; ?>				
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->device_name; ?>				
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->device_mode; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->pixel; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->ram; ?>
-			  <?php echo "</th><th>" ?> 
-			  <?php echo $jsonObj->result[$i]->screen_size; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php echo $jsonObj->result[$i]->sim_number; ?>
-			  <?php echo "</th><th>" ?>
-			  <?php if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){ ?>
-				  <?php echo "<button id='" ?>
-				  <?php echo $jsonObj->result[$i]->id; ?>
-				  <?php echo "'" ?>			  
-				  <?php if($jsonObj->result[$i]->status == 0){ ?>
-				  <?php echo " onclick='applyForDev(event)'>申请设备</button>" ?>
-				  <?php }else if($jsonObj->result[$i]->status == 1){ ?>
-				  <?php echo " onclick='cancleApplyForDev(event)'>取消申请</button>" ?>
-				  <?php } ?>
-			  <?php } ?>
-			  <?php echo "</th><th>" ?>
-			  <?php if($jsonObj->result[$i]->status == 0){ ?>
-					<?php echo "<input style='text' class='input_name' id='input" . $jsonObj->result[$i]->id. "' value=''/>" ?>
-					<?php //echo "<input style='text' class='input_name' id='input"?>
-					<?php //echo $jsonObj->result[$i]->id ; ?>
-				    <?php //echo "'></input>" ?>
-			  <?php }else{ ?>
-					<?php echo $jsonObj->result[$i]->borrower; ?>
-			  <?php } ?>
-			  <?php //echo $jsonObj->result[$i]->borrower; ?>
-			  <?php echo "</th></tr></table>"; ?>
-			  <?php } ?>
+			  <?php 
+			  echo $i + 1;			
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->device_name;				
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->device_mode;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->pixel;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->ram;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->screen_size;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->sim_number;
+			  echo "</th><th>";
+			  if($jsonObj->result[$i]->status == 0 || $jsonObj->result[$i]->status == 1){
+				  echo "<button id='";
+				  echo $jsonObj->result[$i]->id;
+				  echo "'";		  
+				  if($jsonObj->result[$i]->status == 0){
+				  echo " onclick='applyForDev(event)'>申请设备</button>";
+				  }else if($jsonObj->result[$i]->status == 1){
+				  echo " onclick='cancleApplyForDev(event)'>取消申请</button>";
+				  }
+			  }
+			  echo "</th><th>";
+			  if($jsonObj->result[$i]->status == 0){
+					echo "<input style='text' class='input_name' id='input" . $jsonObj->result[$i]->id. "' value=''/>";
+					//echo "<input style='text' class='input_name' id='input"
+					//echo $jsonObj->result[$i]->id ;
+				    //echo "'></input>"
+			  }else{
+					echo $jsonObj->result[$i]->borrower;
+			  }
+			  //echo $jsonObj->result[$i]->borrower;
+			  echo "</th></tr></table>";
+			  }
+			  ?>
 		  </div>
 	    </div>	
 	  </div>
