@@ -18,7 +18,15 @@ $judge = isRequire1("config.php");
 if($judge == "yes"){
 
 }else if($judge == "no"){
-	require 'cfg/config.php';
+	//$dir = dirname(__FILE__);
+	//$arr = explode("\\",$dir);
+	//$index = count($arr);
+	//if($arr[$index-1] != "php"){
+	//	require '../cfg/config.php';
+	//}else{
+	//	require 'cfg/config.php';
+	//}	
+	require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
 }
 
 
@@ -64,6 +72,9 @@ class userManage{
 	public function login(){
 		$username = $_GET['loginname'];
 		$password = $_GET['password'];
+
+		//$username = "admin";
+		//$password = "admin";
 
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
@@ -161,5 +172,5 @@ class userManage{
 
 
 //$obj = new userManage;
-//$obj->logout();
+//$obj->login();
 ?>

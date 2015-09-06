@@ -19,7 +19,12 @@ $judge = isRequire("config.php");
 if($judge == "yes"){
 
 }else if($judge == "no"){
-	require 'cfg/config.php';
+	//try{
+	//	require '../cfg/config.php';
+	//}catch(Exception $e){
+	//	require 'cfg/config.php';
+	//}
+	require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
 }
 
 
@@ -283,14 +288,6 @@ class devManage{
 		$result = mysql_query($querry);
 		mysql_close($con);
 	}
-
-	//删除空格
-	function trimall($str)
-	{
-		$qian=array(" ","　","\t","\n","\r");$hou=array("","","","","");
-		return str_replace($qian,$hou,$str);    
-	}
-
 }
 
 	//$obj = new devManage;

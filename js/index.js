@@ -316,6 +316,7 @@ function login(e){
 			function(data){
 			if(data != "fail"){
 				document.cookie="info="+data;
+				//alert(document.cookie);
 				var strcookie=document.cookie.split(";")[0].split("=")[1];
 				var req = "?info=" + strcookie;
 				window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
