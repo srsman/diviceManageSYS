@@ -204,9 +204,12 @@ class devManage{
 		$sdcard = $_GET['sdcard'];
 		$platform = $_GET['platform'];
 
+		$t1 = time();
+		$t1 = date('Y-m-d H:i:s',$t1);
+
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
-		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform')";	
+		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform,add_time) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform','$t1')";	
 		self::setCoding();
 		mysql_query($querry);
 		mysql_close($con);		
@@ -247,7 +250,8 @@ class devManage{
 
 	//删除一条记录
 	public function delDevice(){
-		$id = $_GET['id'];
+		//$id = $_GET['id'];
+		$id = isset($_GET['id']) ? $_GET['id'] : '';
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
 		$querry = "DELETE FROM devices WHERE id='$id'";
@@ -260,8 +264,10 @@ class devManage{
 	public function verifyBorrow(){
 		$id = $_GET['id'];
 		$con = self::connectMysql();
+		$t1 = time();
+		$t1 = date('Y-m-d H:i:s',$t1);
 		mysql_select_db("deviceSYS", $con);
-		$querry = "UPDATE devices SET status='2' WHERE id='$id'";
+		$querry = "UPDATE devices SET status='2',borrow_time='$t1' WHERE id='$id'";
 		self::setCoding();
 		$result = mysql_query($querry);
 		mysql_close($con);
@@ -282,8 +288,10 @@ class devManage{
 	public function verifyBack(){
 		$id = $_GET['id'];
 		$con = self::connectMysql();
+		$t1 = time();
+		$t1 = date('Y-m-d H:i:s',$t1);
 		mysql_select_db("deviceSYS", $con);
-		$querry = "UPDATE devices SET status='0' WHERE id='$id'";
+		$querry = "UPDATE devices SET status='0',return_time='$t1' WHERE id='$id'";
 		self::setCoding();
 		$result = mysql_query($querry);
 		mysql_close($con);
@@ -291,6 +299,6 @@ class devManage{
 }
 
 	//$obj = new devManage;
-	//$obj->getAllDataShow();
+	//$obj->verifyBorrow();
 ?>
 
