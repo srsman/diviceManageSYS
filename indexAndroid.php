@@ -26,7 +26,7 @@
 		  <div>
 			<table id="head_info" border="1">
 			  <tr>
-				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请设备</th><th>申请人</th>
+				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请设备</th><th>申请人</th><th>借出时间</th>
 			  </tr>
 			</table>
 			  <?php 
@@ -73,6 +73,12 @@
 					echo $jsonObj->result[$i]->borrower;
 			  }
 			  //echo $jsonObj->result[$i]->borrower;
+			  echo "</th><th>";
+			  if($jsonObj->result[$i]->status == 2){
+				  $borrow_time = $jsonObj->result[$i]->borrow_time;
+				  $return_time = $jsonObj->result[$i]->return_time;
+				  echo $borrow_time;
+			  }
 			  echo "</th></tr></table>";
 			  } ?>
 		  </div>
