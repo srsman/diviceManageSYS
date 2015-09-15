@@ -23,6 +23,7 @@ body {padding:0px;margin:0px;}
 #info_table th {width:330px;height:60px;}
 #info_table label {float:left;position:relative;top:10px;}
 #info_table input {width:230px;height:40px;float:right;font-size:18;}
+#info_table select {width:230px;height:40px;float:right;font-size:18;}
 .need_star {color:red;float:left;position:relative;top:10px;}
 #add_divice_button {width:230px;height:40px;margin-top:10px;font-size:18;margin-left:102;}
 #clear_button {width:230px;height:40px;margin-top:10px;font-size:18;margin-left:96;}

@@ -26,7 +26,7 @@
 		  <div>
 			<table id="head_info" border="1">
 			  <tr>
-				<th>id</th><th>设备名</th><th>型号</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请人</th><th>借出时间</th>
+				<th>id</th><th>设备名</th><th>型号</th><th>系统版本</th><th>分辨率</th><th>内存</th><th>屏幕尺寸</th><th>SIM卡</th><th>申请人</th><th>借出时间</th>
 			  </tr>
 			</table>
 			  <?php 
@@ -44,6 +44,8 @@
 			  echo $jsonObj->result[$i]->device_name;				
 			  echo "</th><th>";
 			  echo $jsonObj->result[$i]->device_mode;
+			  echo "</th><th>";
+			  echo $jsonObj->result[$i]->sys_version;
 			  echo "</th><th>";
 			  echo $jsonObj->result[$i]->pixel;
 			  echo "</th><th>";

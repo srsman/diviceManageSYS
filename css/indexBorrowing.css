@@ -22,5 +22,10 @@ body {padding:0px;margin:0px;}
 #ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
 #head_info {margin:0 auto;border-color:#cccccc;_border-left:none;_border-right:none;border-top:none;border-collapse:collapse;}
 #head_info th {width:130px;height:40px;border-color:#cccccc;_border-left:none;border-top:none;_border-right:none;border-collapse:collapse;}
+#head_info th:nth-child(4) {width:110px;}
+#head_info th:nth-child(6) {width:40px;}
+#head_info th:nth-child(7) {width:80px;}
+#head_info th:nth-child(8) {width:90px;}
+#head_info th:nth-child(9) {width:110px;}
 #head_info th:nth-child(1) {width:50px;height:40px;border-color:#cccccc;_border-left:none;border-top:none;_border-right:none;border-collapse:collapse;}
 .input_name {_background-color:yellow;width:90px;height:30px;_border:1px;}

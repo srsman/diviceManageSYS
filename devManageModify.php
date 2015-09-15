@@ -9,7 +9,7 @@
   	<div id="main">
   	<div id="top">
 	修改设备信息
-	<div id="close" onclick="closeLogin()"></div>
+	<div id="close" onclick="modifyDevPageBack()"></div>
 	</div>
 		  <div id="div_add_dev">
 			  <div id="info">

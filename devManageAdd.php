@@ -63,7 +63,13 @@
 				  <tr>
 					<th><label class="need_star"></label><label>SIM卡：</label><input style="text" id="sim_number"></input></th>
 					<th><label class="need_star"></label><label>SD卡：</label><input style="text" id="sdcard"></input></th>
-					<th><label class="need_star"></label><label>平台：</label><input style="text" id="platform" value="android"></input></th>
+					<th><label class="need_star"></label><label>平台：</label><select id="platform">
+						<option value="android">android</option>
+						<option value="ios">ios</option>
+					</select></th>
+				  </tr>
+				  <tr>
+					<th><label class="need_star"></label><label>系统版本：</label><input style="text" id="sys_version"></input></th>
 				  </tr>
 				</table>
 				<button id="add_divice_button" onclick="addDevice(event)">添加</button>

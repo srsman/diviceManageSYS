@@ -50,7 +50,7 @@
 			  echo "</th><th>";
 			  echo $jsonObj->result[$i]->device_mode;
 			  echo "</th><th>";
-			  echo "版本";
+			  echo $jsonObj->result[$i]->sys_version;
 			  echo "</th><th>";
 			  echo $jsonObj->result[$i]->pixel;
 			  echo "</th><th>";

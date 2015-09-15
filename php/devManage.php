@@ -184,9 +184,9 @@ class devManage{
 
 	//设置访问数据库编码
 	public function setCoding(){
-		mysql_query("SET NAMES 'UTF8'");  
+		mysql_query("SET NAMES UTF8"); 
 		mysql_query("SET CHARACTER SET UTF8");  
-		mysql_query("SET CHARACTER_SET_RESULTS=UTF8'"); 
+		mysql_query("SET CHARACTER_SET_RESULTS=UTF8"); 
 	}
 
 	//向数据库添加设备
@@ -208,9 +208,15 @@ class devManage{
 		$t1 = date('Y-m-d H:i:s',$t1);
 
 		$con = self::connectMysql();
-		mysql_select_db("deviceSYS", $con);
-		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform,add_time) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform','$t1')";	
 		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		
+		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform,add_time) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform','$t1')";	
+		//$f = fopen("log.txt","w");
+		//$encode = mb_detect_encoding($device_name, array("ASCII",'UTF-8',"GB2312","GBK"));
+		//fwrite($f,$device_name);
+		//fwrite($f,$encode);
+		//fclose($f);
 		mysql_query($querry);
 		mysql_close($con);		
 		echo "设备添加成功！";
@@ -250,8 +256,8 @@ class devManage{
 
 	//删除一条记录
 	public function delDevice(){
-		//$id = $_GET['id'];
-		$id = isset($_GET['id']) ? $_GET['id'] : '';
+		$id = $_GET['id'];
+		//$id = isset($_GET['id']) ? $_GET['id'] : '';
 		$con = self::connectMysql();
 		mysql_select_db("deviceSYS", $con);
 		$querry = "DELETE FROM devices WHERE id='$id'";

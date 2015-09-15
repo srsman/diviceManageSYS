@@ -274,6 +274,15 @@ function verifyBack(e){
 	});
 }
 
+//跳转到修改页面
+function toModifyDevPage(e){
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php"
+}
+
+function modifyDevPageBack(e){
+	history.back(-1);
+}
+
 //注册
 function register(e){
 	e = e || window.event;
