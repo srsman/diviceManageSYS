@@ -71,11 +71,12 @@ function addDevice(e){
 	var sim_number = $("#sim_number").val();
 	var sdcard = $("#sdcard").val();
 	var platform = $("#platform").val();
+	var sys_version = $("#sys_version").val();
 
 	if(device_name == "" || device_mode == ""){
 		alert("【设备名】和【型号】不能为空！")
 	}else{
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform},
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/addDevice.php", {device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
 		function(data){
 			alert(data);
 		});
@@ -276,7 +277,12 @@ function verifyBack(e){
 
 //跳转到修改页面
 function toModifyDevPage(e){
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php"
+	e = e || window.event;
+	id = e.target.id;
+	id = id.substr(6);
+	var strcookie=document.cookie.split(";")[0].split("=")[1];
+	var req = "&info=" + strcookie;
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php?id=" + id + req;
 }
 
 function modifyDevPageBack(e){

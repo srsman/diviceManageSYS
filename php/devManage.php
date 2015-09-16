@@ -182,6 +182,20 @@ class devManage{
 		return $resultJson;
 	}
 
+	//查询数据库中指定id的设备信息
+	public function getDeviceInfo(){
+		$id = $_GET["id"];
+		
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM devices WHERE id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
 	//设置访问数据库编码
 	public function setCoding(){
 		mysql_query("SET NAMES UTF8"); 
@@ -203,6 +217,7 @@ class devManage{
 		$sim_number = $_GET['sim_number'];
 		$sdcard = $_GET['sdcard'];
 		$platform = $_GET['platform'];
+		$sys_version = $_GET['sys_version'];
 
 		$t1 = time();
 		$t1 = date('Y-m-d H:i:s',$t1);
@@ -211,7 +226,44 @@ class devManage{
 		self::setCoding();
 		mysql_select_db("deviceSYS", $con);
 		
-		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform,add_time) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform','$t1')";	
+		$querry = "INSERT INTO devices (device_name,device_mode,pixel,ram,screen_size,cpu_hz,for_camara,back_camara,color,numbers,sim_number,sdcard,platform,add_time,sys_version) VALUES ('$device_name','$device_mode','$pixel','$ram','$screen_size','$cpu_hz','$for_camara','$back_camara','$color','1','$sim_number','$sdcard','$platform','$t1','$sys_version')";	
+		//$f = fopen("log.txt","w");
+		//$encode = mb_detect_encoding($device_name, array("ASCII",'UTF-8',"GB2312","GBK"));
+		//fwrite($f,$device_name);
+		//fwrite($f,$encode);
+		//fclose($f);
+		mysql_query($querry);
+		mysql_close($con);		
+		echo "设备添加成功！";
+	}
+
+
+	//修改设备
+	public function modifyDevice(){
+		$id = $_GET['id'];
+
+		$device_name = $_GET['device_name'];
+		$device_mode = $_GET['device_mode'];
+		$pixel = $_GET['pixel'];
+		$ram = $_GET['ram'];
+		$cpu_hz = $_GET['cpu_hz'];
+		$screen_size = $_GET['screen_size'];
+		$color = $_GET['color'];
+		$for_camara = $_GET['for_camara'];
+		$back_camara = $_GET['back_camara'];
+		$sim_number = $_GET['sim_number'];
+		$sdcard = $_GET['sdcard'];
+		$platform = $_GET['platform'];
+		$sys_version = $_GET['sys_version'];
+
+		$con = self::connectMysql();
+		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE devices SET device_name='$device_name',device_mode='$device_mode',pixel='$pixel',
+		ram='$ram',screen_size='$screen_size',cpu_hz='$cpu_hz',for_camara='$for_camara',back_camara='$back_camara',
+		color='$color',numbers='1',sim_number='$sim_number',sdcard='$sdcard',platform='$platform',
+		sys_version='$sys_version' WHERE id='$id'";
+
 		//$f = fopen("log.txt","w");
 		//$encode = mb_detect_encoding($device_name, array("ASCII",'UTF-8',"GB2312","GBK"));
 		//fwrite($f,$device_name);
