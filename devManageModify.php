@@ -31,8 +31,7 @@
 				require 'php/devManage.php';
 				$id = $_GET["id"];
 			    $obj = new devManage;
-				//$result = $obj->getDeviceInfo(); 
-				$result = $obj->getApplyforDataShow();
+				$result = $obj->getDeviceInfo(); 
 				$jsonObj = json_decode($result);				
 
 				echo  '<tr><th><label class="need_star">*</label><label>设备名：</label><input style="text" id="device_name" value="';
@@ -78,19 +77,35 @@
 				echo '"></input></th>
 						<th><label class="need_star"></label><label>平台：</label><select id="platform" value="';
 				echo $jsonObj->result[0]->platform;
-				echo '">
+				if($jsonObj->result[0]->platform == "android"){
+					echo '">
+								<option value="android" selected="selected">android</option>
+								<option value="ios">ios</option>
+							</select></th>
+						  </tr>
+						  <tr>
+							<th><label class="need_star"></label><label>系统版本：</label><input style="text" id="sys_version" value="';
+				}else if($jsonObj->result[0]->platform == "ios"){
+					echo '">
 							<option value="android">android</option>
-							<option value="ios">ios</option>
+							<option value="ios" selected="selected">ios</option>
 						</select></th>
 					  </tr>
 					  <tr>
 						<th><label class="need_star"></label><label>系统版本：</label><input style="text" id="sys_version" value="';
+				}
+				
 				echo $jsonObj->result[0]->sys_version;
 				echo '"></input></th>
 					  </tr>';
 				  ?>
 				</table>
 				<button id="commit_divice_button" onclick="addDevice(event)">提交</button>
+				<?php
+				echo '<label id="dev_id" style="display:none">';
+				echo "modify".$id;
+				echo '</label>';
+				?>
 			  </div>
 		  </div>
 	</div>

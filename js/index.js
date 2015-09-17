@@ -85,6 +85,40 @@ function addDevice(e){
 //	alert(device_name + device_mode + pixel + ram + cpu_hz + screen_size + color + for_camara + back_camara + sim_number + sdcard);
 }
 
+//修改设备信息
+function addDevice(e){
+	id = $("#dev_id").text();
+	id = id.substr(6);
+
+	var device_name = $("#device_name").val();
+	var device_mode = $("#device_mode").val();
+	var pixel = $("#pixel").val();
+	var ram = $("#ram").val();
+	var cpu_hz = $("#cpu_hz").val();
+	var screen_size = $("#screen_size").val();
+	var color = $("#color").val();
+	var for_camara = $("#for_camara").val();
+	var back_camara = $("#back_camara").val();
+	var sim_number = $("#sim_number").val();
+	var sdcard = $("#sdcard").val();
+	var platform = $("#platform").val();
+	var sys_version = $("#sys_version").val();
+
+	if(device_name == "" || device_mode == ""){
+		alert("【设备名】和【型号】不能为空！")
+	}else{
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyDevice.php", {id:id,device_name:device_name,device_mode:device_mode,pixel:pixel,ram:ram,cpu_hz:cpu_hz,screen_size:screen_size,color:color,for_camara:for_camara,back_camara:back_camara,sim_number:sim_number,sdcard:sdcard,platform:platform,sys_version},
+		function(data){
+			alert(data);
+			var strcookie=document.cookie.split(";")[0].split("=")[1];
+			var req = "&info=" + strcookie;
+			window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php?id=" + id + req;
+		});
+	}
+	
+//	alert(device_name + device_mode + pixel + ram + cpu_hz + screen_size + color + for_camara + back_camara + sim_number + sdcard);
+}
+
 //清空设备信息
 function clearInfo(e){
 	$("#device_name").val("");
@@ -267,6 +301,19 @@ function refuseBorrow(e){
 function verifyBack(e){
 	e = e || window.event;
 	id = e.target.id;
+	url = location.href;
+	id = id.replace(/\s+/g, "");
+	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},
+		function(data){
+		window.location.href=url;
+	});
+}
+
+//确认归还
+function verifyBack2(e){
+	e = e || window.event;
+	id = e.target.id;
+	id = id.substr(6);
 	url = location.href;
 	id = id.replace(/\s+/g, "");
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/verifyBack.php", {id:id},

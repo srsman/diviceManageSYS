@@ -191,6 +191,10 @@ class devManage{
 		$querry = "SELECT * FROM devices WHERE id='$id'";
 		self::setCoding();
 		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
 		mysql_close($con);
 		$resultJson = json_encode(array('result'=>$arr));
 		return $resultJson;
@@ -271,7 +275,7 @@ class devManage{
 		//fclose($f);
 		mysql_query($querry);
 		mysql_close($con);		
-		echo "设备添加成功！";
+		echo "设备修改成功！";
 	}
 
 	//申请设备
