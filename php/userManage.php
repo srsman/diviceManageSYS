@@ -21,7 +21,7 @@ $judge = isRequire1("config.php");
 if($judge == "yes"){
 	
 }else if($judge == "no"){
-	require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
+	require '/home/lyh/program/html/diviceManageSYS/cfg/config.php';
 }
 
 
