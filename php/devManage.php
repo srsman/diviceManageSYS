@@ -6,7 +6,7 @@ function isRequire($str){
 	$len = count($arrs);
 	$i=0;	
 	while($i < $len){
-		if(strstr($arrs[$i],"config.php"))
+		if(strstr($arrs[$i],$str))
 		{
 			return "yes";
 		}

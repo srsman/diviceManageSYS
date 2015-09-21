@@ -1,12 +1,13 @@
 <?php 
 //require '../cfg/config.php';
+//require_once 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
 
 function isRequire1($str){
 	$arrs  = get_included_files();
 	$len = count($arrs);
 	$i=0;	
 	while($i < $len){
-		if(strstr($arrs[$i],"config.php"))
+		if(strstr($arrs[$i],$str))
 		{
 			return "yes";
 		}
@@ -14,18 +15,12 @@ function isRequire1($str){
 	}
 	return "no";
 }
-$judge = isRequire1("config.php");
-if($judge == "yes"){
 
+$judge = isRequire1("config.php");
+
+if($judge == "yes"){
+	
 }else if($judge == "no"){
-	//$dir = dirname(__FILE__);
-	//$arr = explode("\\",$dir);
-	//$index = count($arr);
-	//if($arr[$index-1] != "php"){
-	//	require '../cfg/config.php';
-	//}else{
-	//	require 'cfg/config.php';
-	//}	
 	require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
 }
 
@@ -168,9 +163,27 @@ class userManage{
 		}  
 		return $password;  
 	} 
+
+	//获取所有用户信息
+	function getAllUserInfo(){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM users";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+		//echo $resultJson;
+	}
+
+
 }
 
-
 //$obj = new userManage;
-//$obj->login();
+//$obj->getAllUserInfo();
 ?>

@@ -1,0 +1,25 @@
+body {padding:0px;margin:0px;}
+#main {height:100%;width:100%;_background-color:green;display:block;}
+#top_bar {height: 50px;width:100%;background-color: black;}
+#top_bar label:nth-child(1)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 50px;}
+#top_bar label:nth-child(2)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 250px;}
+#top_bar label:nth-child(3)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 300px;}
+#top_bar label:nth-child(4)  {color: #dddddd;margin-top: 15px;position:absolute;margin-left: 380px;}
+#top_bar label:nth-child(5)  {color: white;margin-top: 15px;position:absolute;margin-left: 480px;}
+#show {width:100%;height:100%;}
+#ctrl_div {height: 50px;width:100%;background-color: #cccccc;}
+#ctrl_div button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;background-color: red;font-size:18;}
+#ctrl_div button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: yellow;font-size:18;}
+#ctrl_div button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: blue;font-size:18;}
+#show_devices {width:100%;height:100%;background-color:white;display:none;}
+#device_manage {width:100%;min-height:100%;background-color:white;display:block;}
+#ctrl_div1 {height: 50px;width:100%;background-color: #cccccc;}
+#ctrl_div1 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;_background-color: red;font-size:18;}
+#ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: #aaaaaa;font-size:18;}
+#ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;_background-color: blue;font-size:18;}
+
+#div_manage_user {width:100%;min-height:90%;_background-color:#bbbbbb;margin:0 auto;_display:none;margin:0 auto;}
+#head_info {margin:0 auto;border-color:#cccccc;_border-left:none;_border-right:none;border-top:none;border-collapse:collapse;}
+#head_info th {width:130px;height:40px;border-color:#cccccc;_border-left:none;border-top:none;_border-right:none;border-collapse:collapse;margin:0 auto;}
+
+
