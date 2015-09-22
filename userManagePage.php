@@ -73,7 +73,7 @@
 				  echo "<button id='";
 				  echo "modify".$jsonObj->result[$i]->id;
 				  echo "'";
-				  echo  " onclick='delDevice(event)'>修改</button>";
+				  echo  " onclick='toModifyUserPage(event)'>修改</button>";
 				  echo "</th></tr></table>";
 			  } 
 			  ?>

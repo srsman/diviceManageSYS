@@ -21,7 +21,7 @@ $judge = isRequire1("config.php");
 if($judge == "yes"){
 	
 }else if($judge == "no"){
-	require '/home/lyh/program/html/diviceManageSYS/cfg/config.php';
+	require 'D:\myProgram\hdocs\diviceManageSYS\cfg\config.php';
 }
 
 
@@ -178,7 +178,23 @@ class userManage{
 		mysql_close($con);
 		$resultJson = json_encode(array('result'=>$arr));
 		return $resultJson;
-		//echo $resultJson;
+	}
+
+	//获取单个用户信息
+	function getTheUserInfo(){
+		$id = $_GET["id"];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM users where id='$id'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
 	}
 
 

@@ -332,6 +332,16 @@ function toModifyDevPage(e){
 	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php?id=" + id + req;
 }
 
+//跳转到用户信息修改页面
+function toModifyUserPage(e){
+	e = e || window.event;
+	id = e.target.id;
+	id = id.substr(6);
+	var strcookie=document.cookie.split(";")[0].split("=")[1];
+	var req = "&info=" + strcookie;
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/userManagemodify.php?id=" + id + req;
+}
+
 function modifyDevPageBack(e){
 	history.back(-1);
 }

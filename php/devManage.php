@@ -24,7 +24,7 @@ if($judge == "yes"){
 	//}catch(Exception $e){
 	//	require 'cfg/config.php';
 	//}
-	require '/home/lyh/program/html/diviceManageSYS/cfg/config.php';
+	require 'D:\myProgram\hdocs\diviceManageSYS\cfg\config.php';
 }
 
 
