@@ -6,7 +6,7 @@
   	<link href="css/userManagePage.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-	<!-- <?php  
+	<?php  
 		require 'php/userManage.php';
 		$obj = new userManage;
 		$result = $obj->islogin(); 
@@ -18,7 +18,7 @@
 			echo "jumpToIndex();";
 			echo "</script>";
 		}
-	?> -->
+	?>
   	<div id="main">
   	  <div id="top_bar">
   	  	<label>炫一下设备管理系统</label>
@@ -48,34 +48,67 @@
 			  </tr>
 			</table>
 			<?php 
+			  $info = $_GET["info"];
 			  $obj = new userManage;
 		      $result = $obj->getAllUserInfo(); 
+			  $result2 = $obj->getInfoBySession($info);
 			  $jsonObj = json_decode($result);
-			  for($i=0;$i<count($jsonObj->result);$i++){
-				  echo "<table id='head_info' border='1'><tr><th>";
-				  echo $i + 1;	
-				  echo "</th><th>";
-				  echo $jsonObj->result[$i]->loginname;	
-				  echo "</th><th>";
-				  echo $jsonObj->result[$i]->username;
-				  echo "</th><th>";
-				  echo $jsonObj->result[$i]->password;		
-				  echo "</th><th>";
-				  echo $jsonObj->result[$i]->role;		
-				  echo "</th><th>";
-				  echo $jsonObj->result[$i]->session;	
-				  echo "</th><th>";
-				  echo "<button id='";
-				  echo $jsonObj->result[$i]->id;
-				  echo "'";
-				  echo  " onclick='delAnUser(event)'>删除</button>";
-				  echo "</th><th>";
-				  echo "<button id='";
-				  echo "modify".$jsonObj->result[$i]->id;
-				  echo "'";
-				  echo  " onclick='toModifyUserPage(event)'>修改</button>";
-				  echo "</th></tr></table>";
-			  } 
+			  $jsonObj2 = json_decode($result2);
+			  if($jsonObj2->result[0]->role == 0){
+					for($i=0;$i<count($jsonObj->result);$i++){
+					  echo "<table id='head_info' border='1'><tr><th>";
+					  echo $i + 1;	
+					  echo "</th><th>";
+					  echo $jsonObj->result[$i]->loginname;	
+					  echo "</th><th>";
+					  echo $jsonObj->result[$i]->username;
+					  echo "</th><th>";
+					  echo $jsonObj->result[$i]->password;		
+					  echo "</th><th>";
+					  echo $jsonObj->result[$i]->role;		
+					  echo "</th><th>";
+					  echo $jsonObj->result[$i]->session;	
+					  echo "</th><th>";
+					  echo "<button id='";
+					  echo $jsonObj->result[$i]->id;
+					  echo "'";
+					  echo  " onclick='delAnUser(event)'>删除</button>";
+					  echo "</th><th>";
+					  echo "<button id='";
+					  echo "modify".$jsonObj->result[$i]->id;
+					  echo "'";
+					  echo  " onclick='toModifyUserPage(event)'>修改</button>";
+					  echo "</th></tr></table>";
+					} 
+			  }else if($jsonObj2->result[0]->role == 1){
+					for($i=0;$i<count($jsonObj->result);$i++){
+						if($jsonObj->result[$i]->session == $info || $jsonObj->result[$i]->role == 2){
+							  echo "<table id='head_info' border='1'><tr><th>";
+							  echo $i + 1;	
+							  echo "</th><th>";
+							  echo $jsonObj->result[$i]->loginname;	
+							  echo "</th><th>";
+							  echo $jsonObj->result[$i]->username;
+							  echo "</th><th>";
+							  echo $jsonObj->result[$i]->password;		
+							  echo "</th><th>";
+							  echo $jsonObj->result[$i]->role;		
+							  echo "</th><th>";
+							  echo $jsonObj->result[$i]->session;	
+							  echo "</th><th>";
+							  echo "<button id='";
+							  echo $jsonObj->result[$i]->id;
+							  echo "'";
+							  echo  " onclick='delAnUser(event)'>删除</button>";
+							  echo "</th><th>";
+							  echo "<button id='";
+							  echo "modify".$jsonObj->result[$i]->id;
+							  echo "'";
+							  echo  " onclick='toModifyUserPage(event)'>修改</button>";
+							  echo "</th></tr></table>";
+						}
+					} 
+			  }	  
 			  ?>
 		  </div>
 		</div>

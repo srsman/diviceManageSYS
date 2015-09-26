@@ -100,7 +100,7 @@
 					  </tr>';
 				  ?>
 				</table>
-				<button id="commit_divice_button" onclick="addDevice(event)">提交</button>
+				<button id="commit_divice_button" onclick="modifyDevice(event)">提交</button>
 				<?php
 				echo '<label id="dev_id" style="display:none">';
 				echo "modify".$id;

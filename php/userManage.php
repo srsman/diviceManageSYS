@@ -138,6 +138,22 @@ class userManage{
 		return $role;
 	}
 
+	//通过session查询用户信息
+	public function getInfoBySession($session){
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "SELECT * FROM users where session='$session'";
+		self::setCoding();
+		$result = mysql_query($querry);
+		$arr = array();
+		while($row = mysql_fetch_array($result,MYSQL_ASSOC)){
+			$arr[] = $row;
+		}
+		mysql_close($con);
+		$resultJson = json_encode(array('result'=>$arr));
+		return $resultJson;
+	}
+
 
 
 	//获取登录的随机字符串

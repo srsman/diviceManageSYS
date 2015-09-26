@@ -61,7 +61,7 @@ function addDevice(e){
 }
 
 //修改设备信息
-function addDevice(e){
+function modifyDevice(e){
 	id = $("#dev_id").text();
 	id = id.substr(6);
 
@@ -87,7 +87,7 @@ function addDevice(e){
 			alert(data);
 			var strcookie=document.cookie.split(";")[0].split("=")[1];
 			var req = "&info=" + strcookie;
-			window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php?id=" + id + req;
+			window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageModify.php?id=" + id + req;
 		});
 	}
 	
@@ -294,7 +294,7 @@ function toModifyDevPage(e){
 	id = id.substr(6);
 	var strcookie=document.cookie.split(";")[0].split("=")[1];
 	var req = "&info=" + strcookie;
-	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManagemodify.php?id=" + id + req;
+	window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageModify.php?id=" + id + req;
 }
 
 //跳转到用户信息修改页面
