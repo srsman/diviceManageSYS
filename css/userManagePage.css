@@ -15,8 +15,8 @@ body {padding:0px;margin:0px;}
 #device_manage {width:100%;min-height:100%;background-color:white;display:block;}
 #ctrl_div1 {height: 50px;width:100%;background-color: #cccccc;}
 #ctrl_div1 button:nth-child(1) {color: black;margin-top: 10px;position:absolute;margin-left: 50px;_background-color: red;font-size:18;}
-#ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;background-color: #aaaaaa;font-size:18;}
-#ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;_background-color: blue;font-size:18;}
+#ctrl_div1 button:nth-child(2) {color: black;margin-top: 10px;position:absolute;margin-left: 150px;_background-color: #aaaaaa;font-size:18;}
+#ctrl_div1 button:nth-child(3) {color: black;margin-top: 10px;position:absolute;margin-left: 250px;background-color: #aaaaaa;font-size:18;}
 
 #div_manage_user {width:100%;min-height:90%;_background-color:#bbbbbb;margin:0 auto;_display:none;margin:0 auto;}
 #head_info {margin:0 auto;border-color:#cccccc;_border-left:none;_border-right:none;border-top:none;border-collapse:collapse;}

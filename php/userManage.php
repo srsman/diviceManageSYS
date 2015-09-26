@@ -41,7 +41,7 @@ class userManage{
 		}
 	}
 
-	//向数据库添加设备
+	//向数据库添加用户
 	public function addUser(){
 		$loginname = $_GET['loginname'];
 		$username = $_GET['username'];
@@ -197,9 +197,38 @@ class userManage{
 		return $resultJson;
 	}
 
+	//修改用户信息
+	function modifyUserInfo(){
+		$id = $_GET["id"];
+
+		$loginname = $_GET["loginname"];
+		$username = $_GET["username"];
+		$password = $_GET["password"];
+		$role = $_GET["role"];
+		$session = $_GET["session"];
+		$con = self::connectMysql();
+		self::setCoding();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "UPDATE users SET loginname='$loginname',username='$username',password='$password',role='$role',session='$session'  WHERE id='$id'";
+		
+		mysql_query($querry);
+		mysql_close($con);
+		echo "用户信息修改成功！";
+	}
+
+	//删除一个用户
+	function delAnUser(){
+		$id = $_GET["id"];
+		$con = self::connectMysql();
+		mysql_select_db("deviceSYS", $con);
+		$querry = "DELETE FROM users WHERE id='$id'";
+		self::setCoding();
+		mysql_query($querry);
+		mysql_close($con);
+	}
 
 }
 
 //$obj = new userManage;
-//$obj->getAllUserInfo();
+//$obj->delAnUser();
 ?>

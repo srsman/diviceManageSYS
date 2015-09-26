@@ -39,7 +39,7 @@
 		  <div id="ctrl_div1">
 		    <button  onclick="manDevSwitch(event)" id="div_manage_but">管理设备</button>
 	        <button  onclick="manDevSwitch(event)" id="div_add_but">添加设备</button>
-			<button  onclick="manDevSwitch(event)" id="user_manage_but">添加设备</button>
+			<button  onclick="manDevSwitch(event)" id="user_manage_but">管理用户</button>
 	      </div>
 		  <div id="div_manage_user">
 			  <table id="head_info" border="1">
@@ -68,7 +68,7 @@
 				  echo "<button id='";
 				  echo $jsonObj->result[$i]->id;
 				  echo "'";
-				  echo  " onclick='delDevice(event)'>删除</button>";
+				  echo  " onclick='delAnUser(event)'>删除</button>";
 				  echo "</th><th>";
 				  echo "<button id='";
 				  echo "modify".$jsonObj->result[$i]->id;

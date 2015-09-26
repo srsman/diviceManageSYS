@@ -39,6 +39,7 @@
 		  <div id="ctrl_div1">
 		    <button  onclick="manDevSwitch(event)" id="div_manage_but">管理设备</button>
 	        <button  onclick="manDevSwitch(event)" id="div_add_but">添加设备</button>
+			<button  onclick="manDevSwitch(event)" id="user_manage_but">管理用户</button>
 	      </div>
 		  <div id="div_add_dev">
 			  <div id="info">

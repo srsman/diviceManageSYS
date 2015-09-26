@@ -5,20 +5,11 @@ function divSwitch(e){
 	e = e || window.event;
 	if(e.target.id == "label_search"){
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/"
-		//$("#label_search").css("color","white");
-		//$("#label_manage").css("color","#dddddd");
-		//$("#show_devices").css("display","block");
-		//$("#device_manage").css("display","none");
 	}else if(e.target.id == "label_manage")
 	{
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
-		//window.location.href="http://192.168.1.106/diviceManageSYS/devManage.php"
-		//$("#label_search").css("color","#dddddd");
-		//$("#label_manage").css("color","white");
-		//$("#show_devices").css("display","none");
-		//$("#device_manage").css("display","block");
 	}
 }
 
@@ -27,33 +18,19 @@ function divLogin(e){
 	e = e||window.event;
 	if (e.target.id == "label_login"){
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/login.php"
-		//$("#main").css("display","none");
-		//$("#login_panel").css("display","block");
-		//$("#registe_panel").css("display","none");
 	}else if(e.target.id == "label_register"){
-		window.location.href="http://" + ipAddr + "/diviceManageSYS/register.php"
-		//$("#main").css("display","none");
-		//$("#login_panel").css("display","none");
-		//$("#registe_panel").css("display","block");		
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/register.php"		
 	}
 }
 
 //关闭登陆界面
 function closeLogin(e){
 	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
-	//e = e||window.event;
-	//$("#main").css("display","block");
-	//$("#login_panel").css("display","none");
-	//$("#registe_panel").css("display","none");
 }
 
 //关闭注册界面
 function closeRegister(e){
 	window.location.href="http://" + ipAddr + "/diviceManageSYS/"
-	//e = e||window.event;
-	//$("#main").css("display","block");
-	//$("#login_panel").css("display","none");
-	//$("#registe_panel").css("display","none");
 }
 
 //添加一个设备
@@ -81,8 +58,6 @@ function addDevice(e){
 			alert(data);
 		});
 	}
-	
-//	alert(device_name + device_mode + pixel + ram + cpu_hz + screen_size + color + for_camara + back_camara + sim_number + sdcard);
 }
 
 //修改设备信息
@@ -116,7 +91,6 @@ function addDevice(e){
 		});
 	}
 	
-//	alert(device_name + device_mode + pixel + ram + cpu_hz + screen_size + color + for_camara + back_camara + sim_number + sdcard);
 }
 
 //清空设备信息
@@ -158,26 +132,20 @@ function manDevSwitch(e){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageAdd.php" + req;
-		//$("#div_add_dev").css("display","block");
-		//$("#div_manage_dev").css("display","none");
-		//$("#div_search_dev").css("display","none");
 	}else if(e.target.id == "div_manage_but"){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
-		//window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
-		//$("#div_add_dev").css("display","none");
-		//$("#div_manage_dev").css("display","block");
-		//$("#div_search_dev").css("display","none");
 	}else if(e.target.id == "div_search_but"){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
-		//window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
-		//$("#div_add_dev").css("display","none");
-		//$("#div_manage_dev").css("display","none");
-		//$("#div_search_dev").css("display","block");
+	}else if (e.target.id == "user_manage_but"){
+		var strcookie=document.cookie.split(";")[0].split("=")[1];
+		var req = "?info=" + strcookie;
+		window.location.href="http://" + ipAddr + "/diviceManageSYS/userManagePage.php" + req;
 	}
+
 }
 
 function searchDevice(e){
@@ -186,7 +154,6 @@ function searchDevice(e){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
 		window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php" + req;
-		//window.location.href="http://" + ipAddr + "/diviceManageSYS/devManageSearchAll.php"
 	}else if(e.target.id == "ctrl_div2_borrowing"){
 		var strcookie=document.cookie.split(";")[0].split("=")[1];
 		var req = "?info=" + strcookie;
@@ -235,7 +202,6 @@ function applyForDev(e){
 	if(borrower != ""){
 		$.get("http://" + ipAddr + "/diviceManageSYS/php/applyForDev.php", {id:id,borrower:borrower},
 		function(data){
-			//window.location.href="http://" + ipAddr + "/diviceManageSYS/";
 			window.location.href=url;
 		});		
 	}else{
@@ -251,7 +217,6 @@ function cancleApplyForDev(e){
 	var url = location.href;
 	$.get("http://" + ipAddr + "/diviceManageSYS/php/cancleApplyForDev.php", {id:id},
 	function(data){
-		//window.location.href="http://" + ipAddr + "/diviceManageSYS/"
 		window.location.href=url;
 	});
 }
@@ -322,7 +287,7 @@ function verifyBack2(e){
 	});
 }
 
-//跳转到修改页面
+//跳转到设备修改页面
 function toModifyDevPage(e){
 	e = e || window.event;
 	id = e.target.id;
@@ -340,6 +305,48 @@ function toModifyUserPage(e){
 	var strcookie=document.cookie.split(";")[0].split("=")[1];
 	var req = "&info=" + strcookie;
 	window.location.href="http://" + ipAddr + "/diviceManageSYS/userManagemodify.php?id=" + id + req;
+}
+
+//删除一个用户
+function delAnUser(e){
+	con=confirm("确定删除该用户么?");
+	if(con == true){
+		e = e || window.event;
+		id = e.target.id;
+		var strcookie=document.cookie.split(";")[0].split("=")[1];
+		var req = "&info=" + strcookie;
+		url = location.href;
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/delAnUser.php", {id:id},
+			function(data){
+			window.location.href=url;
+		});
+	}else{
+	
+	}
+	
+}
+
+//修改用户信息
+function modifyUserInfo(e){
+	var id = $("#user_id").text();
+	var loginname = $("#loginname").val();
+	var username = $("#username").val();
+	var password = $("#password").val();
+	var role = $("#role").val();
+	var session = $("#session").val();
+
+	url = location.href;
+
+	if(loginname == "" || username == "" || password == ""){
+		alert("红色星号为必填项！")
+	}else{
+		$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyUserInfo.php", {id:id,loginname:loginname,username:username,
+			password:password,role:role,session:session},
+		function(data){
+			window.location.href=url;
+			alert(data);
+		});
+	}
 }
 
 function modifyDevPageBack(e){
