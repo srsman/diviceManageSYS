@@ -33,11 +33,7 @@
 			    $obj = new userManage;
 				$result = $obj->getTheUserInfo(); 
 				$jsonObj = json_decode($result);	
-				echo  '<tr><th><label class="need_star">*</label><label>登录名：</label><input style="text" id="loginname" value="';
-				echo $jsonObj->result[0]->loginname;
-				echo  '"></input></th>';
-				echo  '<th><label class="need_star">*</label><label>用户名：</label><input style="text" id="username" value="';
-				echo $jsonObj->result[0]->username;
+				
 				echo '"></input></th>
 						<th><label class="need_star">*</label><label>密码：</label><input style="text"
 						id="password" value="';
@@ -56,6 +52,9 @@
 				<?php
 				echo '<label id="user_id" style="display:none">';
 				echo $id;
+				echo '</label>';
+				echo '<label id="the_role" style="display:none">';
+				echo $jsonObj->result[0]->role;
 				echo '</label>';
 				?>
 				</table>

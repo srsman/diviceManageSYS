@@ -329,6 +329,7 @@ function delAnUser(e){
 //修改用户信息
 function modifyUserInfo(e){
 	var id = $("#user_id").text();
+	var theRole = $("#the_role").text();
 	var loginname = $("#loginname").val();
 	var username = $("#username").val();
 	var password = $("#password").val();
@@ -340,12 +341,16 @@ function modifyUserInfo(e){
 	if(loginname == "" || username == "" || password == ""){
 		alert("红色星号为必填项！")
 	}else{
-		$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyUserInfo.php", {id:id,loginname:loginname,username:username,
+		if(theRole == 1 && role == 0){
+			alert("对不起，权限不够！");
+		}else{
+			$.get("http://" + ipAddr + "/diviceManageSYS/php/modifyUserInfo.php", {id:id,loginname:loginname,username:username,
 			password:password,role:role,session:session},
-		function(data){
-			window.location.href=url;
-			alert(data);
-		});
+			function(data){
+				alert(data);
+				window.location.href=url;
+			});
+		}	
 	}
 }
 
