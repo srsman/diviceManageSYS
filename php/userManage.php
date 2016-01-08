@@ -21,7 +21,11 @@ $judge = isRequire1("config.php");
 if($judge == "yes"){
 	
 }else if($judge == "no"){
-	require 'D:\myProgram\hdocs\diviceManageSYS\cfg\config.php';
+	//require 'D:\myProgram\hdocs\diviceManageSYS\cfg\config.php';
+	if (file_exists('cfg/config.php'))
+		require 'cfg/config.php';
+	else if (file_exists('../cfg/config.php'))
+		require '../cfg/config.php';
 }
 
 
