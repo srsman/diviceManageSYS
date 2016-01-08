@@ -26,7 +26,11 @@ if($judge == "yes"){
 	//}else{
 	//	require 'cfg/config.php';
 	//}	
-	require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
+	//require 'D:/myProgram/hdocs/diviceManageSYS/cfg/config.php';
+	if (file_exists('cfg/config.php'))
+		require 'cfg/config.php';
+	else if (file_exists('../cfg/config.php'))
+		require '../cfg/config.php';
 }
 
 
