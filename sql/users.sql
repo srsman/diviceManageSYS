@@ -1,0 +1,9 @@
+INSERT INTO `users` VALUES (00000001, 'admin', 'Administrator', 'anbs,23t', 0, 'gmtwACRWY9{');
+INSERT INTO `users` VALUES (00000003, 'liyuanhong', '李远洪', 'password', 1, 'adgkqvP1>~,');
+INSERT INTO `users` VALUES (00000005, 'zouliwen', '邹丽雯', 'zouliwen', 1, 'hmwxzFGHY_`');
+INSERT INTO `users` VALUES (00000015, 'xuefei', '薛飞', '123456', 3, 'sxACJ347@^{');
+INSERT INTO `users` VALUES (00000019, 'wenjing', 'wenjing', 'wjzhb1127@', 1, 'egkpqsFL4`,');
+INSERT INTO `users` VALUES (00000018, 'liujunyan', 'liujunyan', '123456', 1, 'fjmBCMW46[{');
+INSERT INTO `users` VALUES (00000020, 'xiamingfei', '夏明飞', 'xiamingfei@yixia', 1, 'mwxKLUY145<');
+INSERT INTO `users` VALUES (00000021, 'wangkuan', '王宽', '123456', 1, '');
+INSERT INTO `users` VALUES (00000022, 'winniewang', 'winniewang', '6069918wmm', 1, 'bkoCEWX4]{~');
