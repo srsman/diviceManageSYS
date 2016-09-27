@@ -1,14 +1,41 @@
-INSERT INTO `otherDev` VALUES (28, '充电头（小米）', '充电头（小米）', NULL, NULL, '2016-6-20 02:03:38', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (27, 'VGA视频线', 'VGA视频线', NULL, NULL, '2016-6-20 02:02:44', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (26, 'VGA--HDMI', 'VGA转HDMI转接线', NULL, NULL, '2016-6-20 02:02:12', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (29, 'iphone4数据线', '绿色', NULL, NULL, '2016-6-20 02:04:32', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (25, 'SD卡', '4Gb存储卡', NULL, NULL, '2016-6-20 01:59:09', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (24, 'usb-typeC', 'usb-type数据线', '', '姜涛', '2016-6-23 12:29:30', '2016-6-22 15:50:17', '2016-6-23 12:29:30', 0);
-INSERT INTO `otherDev` VALUES (30, 'iphone4数据线	', '灰色', NULL, NULL, '2016-6-20 02:04:46', NULL, NULL, 0);
-INSERT INTO `otherDev` VALUES (31, 'sim卡', '13699193860（移动）', '', '李腾', '2016-6-23 12:28:33', '2016-6-20 16:51:33', '2016-6-23 12:28:33', 0);
-INSERT INTO `otherDev` VALUES (32, 'android数据线', '白色', '', '孙胜录', '2016-6-23 17:37:38', '2016-6-23 17:07:35', '2016-6-23 17:37:38', 0);
-INSERT INTO `otherDev` VALUES (33, 'iphone5数据线', 'android和ios多用线', '', '荣守振', '2016-6-23 19:03:06', '2016-6-23 17:39:26', '2016-6-23 19:03:06', 0);
-INSERT INTO `otherDev` VALUES (34, 'android数据线', '小米数据线（黑色）', '', '孙胜录', '2016-6-23 17:39:56', '2016-6-23 17:39:56', NULL, 2);
-INSERT INTO `otherDev` VALUES (35, 'iphone5数据线', ' 白色', '', '侯庚', '2016-6-27 11:10:55', '2016-6-27 09:37:12', '2016-6-27 11:10:55', 0);
-INSERT INTO `otherDev` VALUES (36, 'iphone4数据线', '白色', '', '夏明飞', '2016-6-29 14:54:12', '2016-6-29 14:54:12', NULL, 2);
-INSERT INTO `otherDev` VALUES (37, 'iPhone5数据线', 'iPhone5数据线', '', '张文彬', '2016-7-12 15:56:21', '2016-7-12 15:56:21', NULL, 2);
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : dev.yixia.com
+Source Server Version : 50173
+Source Host           : 10.10.20.123:3306
+Source Database       : deviceSYS
+
+Target Server Type    : MYSQL
+Target Server Version : 50173
+File Encoding         : 65001
+
+Date: 2016-09-27 18:35:43
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `otherDev`
+-- ----------------------------
+DROP TABLE IF EXISTS `otherDev`;
+CREATE TABLE `otherDev` (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `deviceName` char(16) NOT NULL,
+  `details` char(16) DEFAULT NULL,
+  `comments` char(64) DEFAULT NULL,
+  `borrower` char(16) DEFAULT NULL,
+  `addTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `borrowTime` timestamp NULL DEFAULT NULL,
+  `backTime` timestamp NULL DEFAULT NULL,
+  `status` int(4) DEFAULT '0' COMMENT '0未借出，1申请，2确认借出，3申请归还',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of otherDev
+-- ----------------------------
+INSERT INTO `otherDev` VALUES ('34', 'android数据线', '小米数据线（黑色）', '', '孙胜录', '2016-06-23 17:39:56', '2016-06-23 17:39:56', null, '2');
+INSERT INTO `otherDev` VALUES ('36', 'iphone4数据线', '白色', '', '夏明飞', '2016-06-29 14:54:12', '2016-06-29 14:54:12', null, '2');
+INSERT INTO `otherDev` VALUES ('38', 'sim卡【移动】', '13699193860', '', '王中伟', '2016-08-09 11:01:10', '2016-08-09 11:00:56', null, '2');
+INSERT INTO `otherDev` VALUES ('39', '中卡卡套', '中卡卡套', '', '王中伟', '2016-08-09 13:57:51', '2016-08-09 13:57:51', null, '2');
